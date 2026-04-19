@@ -1,3 +1,4 @@
+import { Phone, CreditCard, Zap, Truck } from "lucide-react";
 export const siteData = {
   company: {
     name: "AS TRANSPORTS",
@@ -21,10 +22,10 @@ export const siteData = {
 
   hero: {
     badge: "Île-de-France · France · Europe frontalière",
-    title: "Déménagement, débarras et montage avec une équipe sérieuse et réactive",
-    text: "AS Transports accompagne particuliers et professionnels avec une intervention soignée, un devis rapide et une organisation claire.",
+    title: "Déménagement rapide et sans stress en Île-de-France",
+    text: "AS Transports accompagne particuliers et professionnels avec une intervention sérieuse, un devis rapide et une organisation efficace pour vos déménagements, débarras, montages et livraisons.",
     primaryCta: {
-      label: "Obtenir un devis gratuit",
+      label: "Obtenir mon devis gratuit",
       href: "#contact",
     },
     secondaryCta: {
@@ -35,66 +36,66 @@ export const siteData = {
       "Devis rapide",
       "Paiement CB sécurisé",
       "Intervention soignée",
-      "Particuliers & professionnels",
+      "Disponible 7j/7",
     ],
   },
 
   trustItems: [
-    "Téléphone direct",
-    "Paiement CB sécurisé",
-    "Devis gratuit",
-    "Intervention rapide",
+    { icon: Phone, label: "Téléphone direct" },
+    { icon: CreditCard, label: "Paiement CB sécurisé" },
+    { icon: Zap, label: "Devis rapide" },
+    { icon: Truck, label: "Intervention rapide" },
   ],
 
   services: [
     {
       title: "Déménagement",
-      text: "Prise en charge de votre déménagement avec manutention, chargement, transport et déchargement.",
+      text: "Prise en charge complète avec manutention, chargement, transport et déchargement dans les meilleures conditions.",
     },
     {
       title: "Montage de meubles",
-      text: "Assemblage et installation de meubles à domicile avec soin et efficacité.",
+      text: "Assemblage et installation de meubles à domicile avec soin, méthode et efficacité.",
     },
     {
       title: "Montage cuisine",
-      text: "Montage et mise en place de cuisines selon votre espace et vos contraintes.",
+      text: "Montage et mise en place de cuisines avec précision, organisation et respect de votre intérieur.",
     },
     {
       title: "Débarras",
-      text: "Débarras de logement, cave, garage, local ou encombrants avec organisation.",
+      text: "Débarras de logement, cave, garage, local ou encombrants avec intervention rapide et structurée.",
     },
   ],
 
   steps: [
     {
       number: "01",
-      title: "Vous demandez votre devis",
-      text: "Par téléphone ou via le formulaire, avec les informations essentielles sur votre besoin.",
+      title: "Demande de devis",
+      text: "Vous nous contactez par téléphone ou via le formulaire avec les informations essentielles sur votre besoin.",
     },
     {
       number: "02",
-      title: "Nous étudions votre demande",
-      text: "Nous analysons le volume, la distance, les accès et le type de prestation.",
+      title: "Validation rapide",
+      text: "Nous analysons votre demande, le volume, la distance et les accès pour vous proposer une estimation claire.",
     },
     {
       number: "03",
-      title: "Vous validez puis réservez",
-      text: "Après validation du devis, l’intervention est planifiée avec acompte ou paiement sécurisé si nécessaire.",
+      title: "Intervention",
+      text: "Après validation, l’intervention est planifiée rapidement avec une organisation simple et efficace.",
     },
   ],
 
   reassuranceItems: [
     {
       title: "Vrai terrain",
-      text: "Des photos réelles illustrent concrètement les interventions menées par l’entreprise.",
+      text: "Des photos réelles permettent de montrer concrètement les interventions menées par l’entreprise.",
     },
     {
       title: "Preuve visuelle",
-      text: "Les visuels avant / après permettent d’apprécier immédiatement la qualité des prestations.",
+      text: "Les visuels avant / après permettent d’évaluer immédiatement la qualité et le soin des prestations.",
     },
     {
       title: "Communication claire",
-      text: "Les informations essentielles sont présentées de façon plus directe et plus commerciale.",
+      text: "Les informations clés sont présentées de façon simple, directe et rassurante pour faciliter la prise de décision.",
     },
   ],
 
@@ -130,22 +131,22 @@ export const siteData = {
     {
       question: "Dans quelle zone intervenez-vous ?",
       answer:
-        "AS Transports intervient principalement en Île-de-France, avec possibilité de déplacement en France et dans les pays frontaliers selon le projet.",
+        "AS Transports intervient principalement en Île-de-France, avec possibilité de déplacement dans toute la France et les pays frontaliers selon la prestation demandée.",
     },
     {
       question: "Comment obtenir un devis ?",
       answer:
-        "Par téléphone, e-mail ou formulaire. Nous analysons votre besoin pour proposer une estimation adaptée.",
+        "Vous pouvez nous contacter par téléphone, par e-mail ou via le formulaire du site. Nous étudions rapidement votre besoin pour vous proposer une estimation adaptée.",
     },
     {
       question: "Proposez-vous le montage de meubles et de cuisines ?",
       answer:
-        "Oui, nous réalisons le montage de meubles et la mise en place de cuisines selon votre besoin.",
+        "Oui, nous réalisons le montage de meubles ainsi que le montage et la mise en place de cuisines selon votre projet.",
     },
     {
       question: "Peut-on payer en carte bancaire ?",
       answer:
-        "Oui, un système de paiement CB sécurisé peut être intégré pour acompte ou règlement selon le fonctionnement retenu.",
+        "Oui, le site est pensé pour intégrer un paiement CB sécurisé, notamment pour un acompte ou une validation plus simple de la réservation.",
     },
   ],
 };

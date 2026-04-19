@@ -12,6 +12,7 @@ import PricingSection from "./components/sections/PricingSection";
 import PaymentSection from "./components/sections/PaymentSection";
 import FaqSection from "./components/sections/FaqSection";
 import ContactSection from "./components/sections/ContactSection";
+import FinalCtaSection from "./components/sections/FinalCtaSection";
 import { siteData } from "./data/siteData";
 
 export default function App() {
@@ -54,10 +55,11 @@ export default function App() {
           navLinks={navLinks}
           menuOpen={menuOpen}
           setMenuOpen={setMenuOpen}
+          company={company}
         />
 
         <main id="top">
-          <HeroSection hero={hero} />
+          <HeroSection hero={hero} company={company} />
           <TrustBar items={trustItems} />
           <ServicesSection services={services} />
           <StepsSection steps={steps} />
@@ -66,6 +68,7 @@ export default function App() {
           <PaymentSection />
           <FaqSection faqItems={faqItems} />
           <ContactSection company={company} />
+          <FinalCtaSection company={company} />
         </main>
 
         <Footer />
