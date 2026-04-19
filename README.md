@@ -1,69 +1,80 @@
-# React + Vite
+# AS Transports — Site Vitrine (V2)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site vitrine développé pour une entreprise de déménagement, montage et débarras en Île-de-France.
 
-Currently, two official plugins are available:
+Ce projet a pour objectif de proposer une interface moderne, claire et orientée conversion, permettant aux clients de comprendre rapidement les prestations et de demander un devis.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🎯 Objectifs du projet
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Présenter les services de manière claire et professionnelle
+- Mettre en avant la réassurance (visuels, informations, parcours client)
+- Faciliter la prise de contact (devis / téléphone)
+- Préparer l’intégration d’un paiement CB sécurisé
+- Offrir une expérience fluide sur mobile et desktop
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ Stack technique
 
-# AS Transport
+- **React**
+- **Vite**
+- **Tailwind CSS v4**
+- **Framer Motion**
 
-Projet front-end réalisé en freelance pour un client dans le cadre de la création d’un site vitrine professionnel.
+---
 
-## Contexte du projet
+## 🧱 Architecture
 
-AS Transport est un projet de site web conçu pour présenter une activité de transport et de services associés avec une image moderne, sérieuse et professionnelle.
+src/
+├── components/
+│ ├── layout/ → Header, Footer, TopBar
+│ ├── sections/ → Sections de la page (Hero, Services, etc.)
+│ ├── motion/ → Animations (variants Framer Motion)
+├── data/ → Données centralisées (siteData.js)
+├── App.jsx → Composition globale
+├── main.jsx → Entrée React
 
-L’objectif de ce projet est de proposer une interface claire, responsive et engageante, pensée pour inspirer confiance, valoriser les prestations et faciliter la prise de contact.
+---
 
-## Objectifs
+## 🧩 Sections du site
 
-- Créer une vitrine web professionnelle pour le client
-- Mettre en avant les services proposés
-- Offrir une navigation fluide sur mobile, tablette et desktop
-- Travailler une identité visuelle moderne et impactante
-- Optimiser la lisibilité, la hiérarchie visuelle et l’expérience utilisateur
+- Hero (conversion + CTA)
+- Trust bar (réassurance)
+- Services
+- Parcours client (étapes)
+- Réalisations
+- Tarifs
+- Paiement (préparation CB)
+- FAQ
+- Contact
 
-## Stack technique
+---
 
-- React
-- Vite
-- JavaScript
-- CSS
-- HTML
+## 💳 Paiement
 
-## Fonctionnalités principales
+Le site est conçu pour intégrer un système de paiement CB sécurisé.
 
-- Interface responsive
-- Navigation fluide
-- Sections de présentation des services
-- Design orienté conversion
-- Mise en avant des informations de contact
-- Intégration d’éléments visuels adaptés à l’activité
-- Optimisation de l’expérience mobile
+👉 Intégration prévue :
 
-## Structure du projet
+- Stripe Checkout
+- Paiement d’acompte en ligne
+- Page succès / annulation
+
+---
+
+## 🚀 Lancer le projet
 
 ```bash
-src/
-  assets/
-  App.jsx
-  App.css
-  index.css
-  main.jsx
+npm install
+npm run dev
+```
 
-public/
-  images/
-  videos/
-  mentions-legales.html
-  merci.html
-  politique-confidentialite.html
+## 📌 Statut
+
+Projet en cours d’optimisation :
+
+amélioration UX
+finalisation design
+intégration paiement CB
