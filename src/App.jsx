@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import TopBar from "./components/layout/TopBar";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import TopPopup from "./components/sections/TopPopup";
@@ -49,8 +48,6 @@ export default function App() {
       />
 
       <div className="min-h-screen bg-[#062f2b] text-white selection:bg-[#ff5a2a] selection:text-white">
-        <TopBar phone={company.phone} phoneHref={company.phoneHref} />
-
         <Header
           navLinks={navLinks}
           menuOpen={menuOpen}

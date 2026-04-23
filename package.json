@@ -1,13 +1,15 @@
 {
-  "name": "maquette-client",
+  "name": "as-transport",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Site vitrine React + Vite pour AS Transports, orienté conversion, SEO local et prise de devis.",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check": "npm run lint && npm run build"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
@@ -23,6 +25,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
     "eslint": "^9.39.4",
+    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",

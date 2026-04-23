@@ -1,4 +1,5 @@
 import { Phone, CreditCard, Zap, Truck } from "lucide-react";
+
 export const siteData = {
   company: {
     name: "AS TRANSPORTS",
@@ -9,6 +10,21 @@ export const siteData = {
     emailHref: "mailto:alban.transports@gmail.com",
     whatsapp: "https://wa.me/33765166125",
     zone: "Intervention principalement en Île-de-France, avec possibilité de déplacement dans toute la France et les pays frontaliers.",
+  },
+
+  seo: {
+    siteUrl: "https://ton-domaine.com",
+    title: "AS Transports | Déménagement, débarras et montage en Île-de-France",
+    description:
+      "AS Transports accompagne particuliers et professionnels pour les déménagements, débarras, montages de meubles et cuisines en Île-de-France, en France et vers les pays frontaliers.",
+    ogImage: "/images/camion-demenagement.jpg",
+    favicon: "/images/favicon.svg",
+  },
+
+  contactForm: {
+    action: "https://formsubmit.co/alban.transports@gmail.com",
+    subject: "Nouvelle demande de devis - AS Transports",
+    successRedirect: "/merci.html",
   },
 
   navLinks: [
@@ -30,7 +46,6 @@ export const siteData = {
     },
     secondaryCta: {
       label: "Appeler maintenant",
-      href: "tel:+33765166125",
     },
     highlights: [
       "Devis rapide",

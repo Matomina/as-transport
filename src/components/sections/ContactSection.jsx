@@ -159,17 +159,17 @@ export default function ContactSection({ company }) {
             method="POST"
             className="mt-6 grid gap-4 text-center md:text-left"
           >
-            <input type="hidden" name="_captcha" value="false" />
-            <input
-              type="hidden"
-              name="_subject"
-              value="Nouvelle demande de devis - AS Transports"
-            />
+            <input type="hidden" name="_subject" value="Nouvelle demande de devis - AS Transports" />
             <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="/merci.html" />
+
+            {/* Honeypot anti-spam */}
             <input
-              type="hidden"
-              name="_next"
-              value="http://localhost:5173/merci.html"
+              type="text"
+              name="_honey"
+              className="hidden"
+              tabIndex="-1"
+              autoComplete="off"
             />
 
             <div className="grid gap-4 sm:grid-cols-2">
@@ -180,6 +180,8 @@ export default function ContactSection({ company }) {
                   name="Nom"
                   required
                   placeholder="Votre nom"
+                  autoComplete="name"
+                  aria-label="Votre nom"
                   className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-[#ff5a2a]"
                 />
               </label>
@@ -193,6 +195,8 @@ export default function ContactSection({ company }) {
                   name="Téléphone"
                   required
                   placeholder="Votre téléphone"
+                  autoComplete="tel"
+                  aria-label="Votre téléphone"
                   className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-[#ff5a2a]"
                 />
               </label>
@@ -205,6 +209,8 @@ export default function ContactSection({ company }) {
                 name="Email"
                 required
                 placeholder="Votre adresse e-mail"
+                autoComplete="email"
+                aria-label="Votre adresse e-mail"
                 className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-[#ff5a2a]"
               />
             </label>
@@ -217,6 +223,7 @@ export default function ContactSection({ company }) {
                 name="Prestation"
                 required
                 defaultValue=""
+                aria-label="Type de prestation"
                 className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition focus:border-[#ff5a2a]"
               >
                 <option value="" disabled className="text-black">
@@ -249,6 +256,7 @@ export default function ContactSection({ company }) {
                 required
                 rows="6"
                 placeholder="Décrivez votre besoin : volume, ville de départ, ville d'arrivée, étage, date souhaitée..."
+                aria-label="Décrivez votre besoin"
                 className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-[#ff5a2a]"
               />
             </label>
