@@ -27,21 +27,23 @@ export default function App() {
   }, []);
 
   const {
-  company,
-  navLinks,
-  header,
-  hero,
-  footer,
-  contactForm,
-  contactSection,
-  paymentSection,
-  trustItems,
-  services,
-  steps,
-  reassuranceItems,
-  packages,
-  faqItems,
-} = siteData;
+    company,
+    navLinks,
+    topPopup,
+    header,
+    hero,
+    footer,
+    contactForm,
+    contactSection,
+    paymentSection,
+    finalCtaSection,
+    trustItems,
+    services,
+    steps,
+    reassuranceItems,
+    packages,
+    faqItems,
+  } = siteData;
 
   return (
     <>
@@ -50,6 +52,7 @@ export default function App() {
         setShowTopPopup={setShowTopPopup}
         phoneHref={company.phoneHref}
         phone={company.phone}
+        topPopup={topPopup}
       />
 
       <div className="min-h-screen bg-[#062f2b] text-white selection:bg-[#ff5a2a] selection:text-white">
@@ -68,14 +71,17 @@ export default function App() {
           <StepsSection steps={steps} />
           <RealisationsSection reassuranceItems={reassuranceItems} />
           <PricingSection packages={packages} />
-          <PaymentSection />
+          <PaymentSection paymentSection={paymentSection} company={company} />
           <FaqSection faqItems={faqItems} />
           <ContactSection
             company={company}
             contactForm={contactForm}
             contactSection={contactSection}
           />
-          <FinalCtaSection company={company} />
+          <FinalCtaSection
+            company={company}
+            finalCtaSection={finalCtaSection}
+          />
         </main>
 
         <Footer company={company} navLinks={navLinks} footer={footer} />
