@@ -32,6 +32,8 @@ export default function App() {
     header,
     hero,
     footer,
+    contactForm,
+    contactSection,
     trustItems,
     services,
     steps,
@@ -67,7 +69,11 @@ export default function App() {
           <PricingSection packages={packages} />
           <PaymentSection />
           <FaqSection faqItems={faqItems} />
-          <ContactSection company={company} />
+          <ContactSection
+            company={company}
+            contactForm={contactForm}
+            contactSection={contactSection}
+          />
           <FinalCtaSection company={company} />
         </main>
 
