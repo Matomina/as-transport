@@ -283,3 +283,7 @@ Le projet est prêt pour les prochaines phases d’industrialisation.
 Projet développé pour AS Transports.
 
 Architecture React + Vite orientée conversion, UX et performance.
+
+## Qualité
+
+Le projet est vérifié automatiquement via GitHub Actions.
