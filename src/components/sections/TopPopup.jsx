@@ -5,8 +5,21 @@ export default function TopPopup({
   setShowTopPopup,
   phoneHref,
   phone,
+  topPopup,
 }) {
   if (!showTopPopup) return null;
+
+  const section = topPopup ?? {};
+
+  const primaryCta = section.primaryCta ?? {
+    label: "Demander un devis",
+    href: "#contact",
+  };
+
+  const secondaryCta = section.secondaryCta ?? {
+    label: "Appeler le",
+    href: phoneHref,
+  };
 
   return (
     <motion.div
@@ -24,32 +37,32 @@ export default function TopPopup({
 
           <div className="min-w-0 flex-1">
             <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#ffb39d]">
-              Devis rapide
+              {section.badge ?? "Devis rapide"}
             </p>
 
             <h3 className="mt-1 text-lg font-black text-white sm:text-xl">
-              Besoin d’un déménagement ou d’un débarras ?
+              {section.title ?? "Besoin d’un déménagement ou d’un débarras ?"}
             </h3>
 
             <p className="mt-2 text-sm leading-6 text-white/75">
-              Contactez AS Transports pour obtenir une estimation rapide et une
-              intervention adaptée à votre besoin en Île-de-France.
+              {section.text ??
+                "Contactez AS Transports pour obtenir une estimation rapide et une intervention adaptée à votre besoin en Île-de-France."}
             </p>
 
             <div className="mt-4 flex flex-col gap-3 sm:flex-row">
               <a
-                href="#contact"
+                href={primaryCta.href}
                 onClick={() => setShowTopPopup(false)}
                 className="inline-flex items-center justify-center rounded-2xl bg-[#ff5a2a] px-4 py-3 text-sm font-bold text-white transition hover:scale-[1.01]"
               >
-                Demander un devis
+                {primaryCta.label}
               </a>
 
               <a
-                href={phoneHref}
+                href={secondaryCta.href ?? phoneHref}
                 className="inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/10"
               >
-                Appeler le {phone}
+                {secondaryCta.label} {phone}
               </a>
             </div>
           </div>
