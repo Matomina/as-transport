@@ -51,14 +51,11 @@ export const siteData = {
         label: "Intervention rapide",
       },
     ],
-
     primaryCta: {
       label: "Devis gratuit",
       href: "#contact",
     },
-
     mobilePhoneLabel: "Appeler maintenant",
-
     mobileQuoteLabel: "Demander un devis",
   },
 
@@ -80,6 +77,60 @@ export const siteData = {
       "Intervention soignée",
       "Disponible 7j/7",
     ],
+    stats: [
+      {
+        value: "Réponse rapide",
+        text: "Une prise de contact simple pour obtenir une estimation claire.",
+      },
+      {
+        value: "Intervention soignée",
+        text: "Protection, organisation et sérieux sur chaque prestation.",
+      },
+      {
+        value: "Particuliers & pros",
+        text: "Des solutions adaptées selon le volume et le type de besoin.",
+      },
+    ],
+    showcase: {
+      topLeftBadge: "Intervention terrain",
+      topRightBadge: "Devis rapide",
+      imageSrc: "/images/camion-demenagement.jpg",
+      imageAlt: "Chargement d'un camion de déménagement",
+      title:
+        "Une équipe réactive pour vos besoins de transport et de déménagement",
+      text: "Une présentation plus concrète du terrain, du matériel et du sérieux de l’intervention pour rassurer immédiatement le client.",
+    },
+    paymentCard: {
+      eyebrow: "Paiement",
+      title: "Paiement CB sécurisé",
+      text: "Possibilité d’intégrer un règlement sécurisé en ligne pour acompte ou validation plus rapide de la réservation.",
+      tags: ["Acompte possible", "Réservation plus simple"],
+    },
+    quoteCard: {
+      eyebrow: "Réactivité",
+      title: "Devis rapide",
+      text: "Une prise de contact claire, rapide et directe pour obtenir une estimation adaptée à votre projet.",
+      cta: {
+        label: "Demander un devis",
+        href: "#contact",
+      },
+    },
+  },
+
+  footer: {
+    description:
+      "Déménagement, montage, débarras et livraison en Île-de-France",
+    legalLinks: [
+      {
+        label: "Mentions légales",
+        href: "/mentions-legales.html",
+      },
+      {
+        label: "Politique de confidentialité",
+        href: "/politique-confidentialite.html",
+      },
+    ],
+    copyright: "© AS Transports · Tous droits réservés",
   },
 
   trustItems: [
