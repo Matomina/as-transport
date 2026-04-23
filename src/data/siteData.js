@@ -36,6 +36,32 @@ export const siteData = {
     { label: "Contact", href: "#contact" },
   ],
 
+  header: {
+    topBadges: [
+      {
+        icon: CreditCard,
+        label: "Paiement CB sécurisé",
+      },
+      {
+        icon: Zap,
+        label: "Devis rapide",
+      },
+      {
+        icon: Truck,
+        label: "Intervention rapide",
+      },
+    ],
+
+    primaryCta: {
+      label: "Devis gratuit",
+      href: "#contact",
+    },
+
+    mobilePhoneLabel: "Appeler maintenant",
+
+    mobileQuoteLabel: "Demander un devis",
+  },
+
   hero: {
     badge: "Île-de-France · France · Europe frontalière",
     title: "Déménagement rapide et sans stress en Île-de-France",
