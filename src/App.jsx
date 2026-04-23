@@ -31,6 +31,7 @@ export default function App() {
     navLinks,
     header,
     hero,
+    footer,
     trustItems,
     services,
     steps,
@@ -70,7 +71,7 @@ export default function App() {
           <FinalCtaSection company={company} />
         </main>
 
-        <Footer />
+        <Footer company={company} navLinks={navLinks} footer={footer} />
 
         <a
           href={company.whatsapp}
