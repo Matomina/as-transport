@@ -1,9 +1,16 @@
 {
-  "name": "as-transport",
+  "name": "as-transports",
   "private": true,
   "version": "1.0.0",
   "description": "Site vitrine React + Vite pour AS Transports, orienté conversion, SEO local et prise de devis.",
+  "author": "Matomina",
+  "license": "UNLICENSED",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Matomina/as-transport.git"
+  },
+  "homepage": "https://github.com/Matomina/as-transport",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

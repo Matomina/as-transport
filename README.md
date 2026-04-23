@@ -1,30 +1,60 @@
-# AS Transports — Site Vitrine React + Vite
+# AS Transports — Site vitrine premium React + Vite
 
-Application web développée pour une entreprise spécialisée dans le déménagement, le montage, le débarras et le transport.
+![React](https://img.shields.io/badge/React-19-blue)
+![Vite](https://img.shields.io/badge/Vite-8-purple)
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-v4-38BDF8)
+![Build](https://img.shields.io/badge/build-passing-brightgreen)
+![Status](https://img.shields.io/badge/status-active-success)
+![License](https://img.shields.io/badge/license-private-red)
 
-Le projet a été conçu pour proposer une expérience moderne, claire et orientée conversion, avec une structure responsive, un SEO local optimisé et une architecture React évolutive.
+Application web moderne développée pour **AS Transports**, entreprise spécialisée dans le déménagement, le montage, le débarras et le transport.
+
+Le projet a été pensé pour proposer une expérience utilisateur claire, rassurante et orientée conversion, avec une architecture React maintenable, un SEO local optimisé et une base technique évolutive.
 
 ---
 
 # Aperçu du projet
 
-AS Transports est un site vitrine pensé pour :
+AS Transports est un site vitrine conçu pour répondre à plusieurs objectifs métier :
 
-- présenter les services de manière professionnelle
+- valoriser les services proposés
 - rassurer les visiteurs avec une structure claire
-- favoriser les prises de contact rapides
-- simplifier la demande de devis
-- préparer l’intégration d’un paiement sécurisé
+- simplifier la prise de contact
+- favoriser les demandes de devis rapides
+- améliorer la visibilité locale
 - proposer une navigation fluide mobile / desktop
-- offrir une base technique propre et scalable
+- préparer une montée en gamme vers une plateforme plus avancée
 
-Le projet repose sur une architecture React moderne avec séparation claire des composants, animations progressives et données centralisées.
+Le projet repose sur une architecture moderne basée sur React + Vite, avec une logique modulaire et une centralisation complète des données métier.
+
+---
+
+# Objectifs du projet
+
+Le site a été pensé pour répondre à une logique de conversion et de professionnalisation.
+
+## Objectifs business
+
+- augmenter les demandes de devis
+- améliorer la crédibilité de l’entreprise
+- valoriser les prestations de transport et déménagement
+- renforcer la réassurance client
+- proposer une présence digitale moderne
+
+## Objectifs techniques
+
+- structure React scalable
+- maintenance simplifiée
+- données centralisées
+- SEO local optimisé
+- architecture réutilisable
+- base prête pour industrialisation
 
 ---
 
 # Fonctionnalités
 
-## Interface
+## Interface utilisateur
 
 - Header sticky premium
 - Navigation responsive
@@ -34,151 +64,95 @@ Le projet repose sur une architecture React moderne avec séparation claire des 
 - Bouton WhatsApp flottant
 - Sections visuelles structurées
 - Responsive mobile / tablette / desktop
+- Effets de transition fluides
+- Structure pensée pour la conversion
 
 ## Parcours utilisateur
 
-- Présentation claire des prestations
+- Présentation claire des services
 - Réassurance visuelle
 - Process client étape par étape
 - Tarification indicative
 - FAQ informative
-- Formulaire de devis
-- Contact rapide
+- Formulaire de contact
+- Contact rapide par téléphone
+- Navigation simple et directe
 
-## Technique
+## Fonctionnalités techniques
 
 - SEO local optimisé
 - JSON-LD entreprise locale
+- Architecture modulaire
 - Animations Framer Motion
 - Source de données centralisée
-- Structure modulaire
-- Architecture scalable
+- Build production optimisé
+- Validation ESLint
+- Structure scalable
 
 ---
 
 # Stack technique
+
+Le projet repose sur une stack moderne orientée performance et maintenabilité.
+
+## Frontend
 
 - React
 - Vite
 - Tailwind CSS v4
 - Framer Motion
 - Lucide React
+
+## Qualité & tooling
+
 - ESLint
+- npm scripts de validation
+- Build Vite production
 
 ---
 
-# Architecture du projet
+# Démarrage rapide
+
+```bash
+git clone https://github.com/Matomina/as-transport.git
+cd as-transport
+npm install
+npm run dev
+```
+
+Le projet sera disponible localement via :
 
 ```txt
-src/
-├── components/
-│   ├── layout/
-│   │   ├── Header.jsx
-│   │   └── Footer.jsx
-│   │
-│   ├── sections/
-│   │   ├── HeroSection.jsx
-│   │   ├── TrustBar.jsx
-│   │   ├── ServicesSection.jsx
-│   │   ├── StepsSection.jsx
-│   │   ├── RealisationsSection.jsx
-│   │   ├── PricingSection.jsx
-│   │   ├── PaymentSection.jsx
-│   │   ├── FaqSection.jsx
-│   │   ├── ContactSection.jsx
-│   │   ├── FinalCtaSection.jsx
-│   │   └── TopPopup.jsx
-│   │
-│   └── motion/
-│       └── variants.js
-│
-├── data/
-│   └── siteData.js
-│
-├── App.jsx
-├── main.jsx
+http://localhost:5173
 ```
 
 ---
 
-# Données centralisées
+# Installation
 
-Le projet repose sur une logique de **source unique de vérité** via :
+## Prérequis
 
-```txt
-src/data/siteData.js
+- Node.js 20+
+- npm 10+
+
+## Installation locale
+
+```bash
+npm install
+npm run dev
 ```
-
-Ce fichier centralise :
-
-- informations entreprise
-- téléphone
-- e-mail
-- WhatsApp
-- zone d’intervention
-- navigation
-- contenu Hero
-- services
-- étapes
-- FAQ
-- SEO
-- configuration formulaire
-- CTA
-
-Cette approche permet :
-
-- une maintenance simplifiée
-- une cohérence globale du contenu
-- une évolution rapide du projet
-- une réduction des duplications de données
-
----
-
-# SEO
-
-Le projet intègre une base SEO complète :
-
-- meta title
-- meta description
-- canonical
-- Open Graph
-- favicon
-- JSON-LD LocalBusiness
-- optimisation mobile-first
-- structure sémantique claire
-- hiérarchie H1 / H2 / H3
-
-Le fichier `index.html` a été structuré pour préparer une indexation propre.
-
----
-
-# Formulaire de contact
-
-Le formulaire actuel repose sur :
-
-```txt
-FormSubmit
-```
-
-Fonctionnalités :
-
-- envoi direct par email
-- honeypot anti-spam
-- redirection succès
-- structure compatible migration API future
-- configuration centralisée dans `siteData.js`
 
 ---
 
 # Scripts disponibles
 
-## Lancer le projet
+## Développement local
 
 ```bash
 npm run dev
 ```
 
-Démarre le serveur local Vite.
+Lance le serveur Vite local.
 
 ---
 
@@ -188,7 +162,21 @@ Démarre le serveur local Vite.
 npm run build
 ```
 
-Génère une version production dans le dossier `dist/`.
+Génère une version optimisée dans le dossier :
+
+```txt
+dist/
+```
+
+---
+
+## Prévisualisation build
+
+```bash
+npm run preview
+```
+
+Permet de tester localement la build production.
 
 ---
 
@@ -213,16 +201,157 @@ Exécute automatiquement :
 - lint
 - build
 
-Permet de valider rapidement que le projet est propre avant commit ou push.
+Permet de vérifier rapidement qu’aucune régression n’est présente avant commit ou push.
 
 ---
 
-# Installation
+# Architecture du projet
 
-```bash
-npm install
-npm run dev
+```txt
+src/
+├── assets/
+│
+├── components/
+│   ├── layout/
+│   │   ├── Header.jsx
+│   │   └── Footer.jsx
+│   │
+│   ├── motion/
+│   │   └── variants.js
+│   │
+│   └── sections/
+│       ├── HeroSection.jsx
+│       ├── TrustBar.jsx
+│       ├── ServicesSection.jsx
+│       ├── StepsSection.jsx
+│       ├── RealisationsSection.jsx
+│       ├── PricingSection.jsx
+│       ├── PaymentSection.jsx
+│       ├── FaqSection.jsx
+│       ├── ContactSection.jsx
+│       ├── FinalCtaSection.jsx
+│       └── TopPopup.jsx
+│
+├── data/
+│   └── siteData.js
+│
+├── App.jsx
+├── main.jsx
+├── index.css
 ```
+
+---
+
+# Données centralisées
+
+Le projet repose sur une logique de **source unique de vérité** via :
+
+```txt
+src/data/siteData.js
+```
+
+Ce fichier centralise :
+
+- informations entreprise
+- téléphone
+- email
+- WhatsApp
+- navigation
+- SEO
+- contenu Hero
+- services
+- étapes
+- FAQ
+- CTA
+- configuration formulaire
+
+## Avantages
+
+- maintenance simplifiée
+- cohérence globale du contenu
+- évolution rapide
+- réduction des duplications
+- meilleure lisibilité du projet
+
+---
+
+# SEO
+
+Le projet intègre une base SEO complète pour une stratégie locale.
+
+## SEO technique
+
+- Meta title
+- Meta description
+- Canonical
+- Open Graph
+- Twitter Cards
+- Favicon
+- Theme Color
+- JSON-LD MovingCompany
+- Structure HTML sémantique
+
+## SEO local
+
+- ciblage Île-de-France
+- hiérarchie H1 / H2 / H3
+- contenu métier ciblé
+- structure pensée pour indexation Google
+
+Le fichier `index.html` prépare une indexation propre et une bonne compatibilité avec les réseaux sociaux.
+
+---
+
+# Formulaire de contact
+
+Le formulaire actuel repose sur :
+
+```txt
+FormSubmit
+```
+
+## Fonctionnalités
+
+- envoi direct par email
+- redirection de confirmation
+- honeypot anti-spam
+- configuration centralisée
+- possibilité de migration future vers API ou backend
+
+---
+
+# Standards qualité
+
+Le projet applique plusieurs règles de qualité.
+
+## Standards actuels
+
+- ESLint configuré
+- architecture modulaire
+- composants réutilisables
+- responsive mobile-first
+- structure SEO optimisée
+- build production validé
+- validation `npm run check`
+
+## Objectif qualité
+
+Maintenir une base stable, lisible et facilement évolutive.
+
+---
+
+# Performance
+
+Le projet a été pensé pour une expérience rapide et fluide.
+
+## Optimisations
+
+- Vite pour build rapide
+- chargement frontend léger
+- architecture modulaire
+- animations contrôlées
+- optimisation mobile-first
+- séparation claire des composants
 
 ---
 
@@ -231,12 +360,11 @@ npm run dev
 ## Phase actuelle
 
 - stabilisation architecture
-- optimisation UX
 - cohérence responsive
-- SEO local
-- nettoyage structure repo
+- optimisation UX
+- amélioration SEO local
 - professionnalisation composants
-- amélioration accessibilité
+- nettoyage structure repo
 
 ---
 
@@ -245,12 +373,12 @@ npm run dev
 - intégration Stripe
 - page merci / confirmation
 - optimisation Core Web Vitals
-- amélioration animation scroll
+- amélioration animations scroll
 - CI GitHub Actions
 - analytics & tracking
 - optimisation conversion
 - amélioration formulaire
-- système de réservation plus avancé
+- système de réservation avancé
 
 ---
 
@@ -258,13 +386,40 @@ npm run dev
 
 Le projet possède désormais :
 
-- ESLint configuré
-- validation `npm run check`
+- architecture stabilisée
 - build production validé
-- architecture structurée
-- composants réutilisables
+- ESLint actif
 - données centralisées
-- logique SEO prête
+- composants réutilisables
+- base SEO prête
+- logique responsive
+
+---
+
+# Aperçu visuel
+
+Tu peux ajouter ici des captures d’écran du site pour enrichir la présentation du repository.
+
+Exemple :
+
+```txt
+README/assets/homepage-preview.jpg
+README/assets/mobile-preview.jpg
+```
+
+---
+
+# Déploiement
+
+Le projet peut être déployé sur plusieurs plateformes modernes.
+
+## Solutions compatibles
+
+- Vercel
+- Netlify
+- GitHub Pages
+- Render
+- hébergement VPS
 
 ---
 
@@ -272,18 +427,26 @@ Le projet possède désormais :
 
 Projet en évolution active.
 
-Architecture désormais stabilisée et orientée production.
-
-Le projet est prêt pour les prochaines phases d’industrialisation.
+Architecture stabilisée et prête pour les prochaines phases d’industrialisation.
 
 ---
 
 # Auteur
 
-Projet développé pour AS Transports.
+Projet développé pour **AS Transports**.
 
-Architecture React + Vite orientée conversion, UX et performance.
+Architecture React + Vite orientée conversion, UX, SEO local et performance.
 
-## Qualité
+---
 
-Le projet est vérifié automatiquement via GitHub Actions.
+# Licence
+
+Projet privé.
+
+Utilisation réservée au cadre du développement du site AS Transports.
+
+---
+
+# Repository
+
+GitHub : [https://github.com/Matomina/as-transport](https://github.com/Matomina/as-transport)

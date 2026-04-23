@@ -13,7 +13,7 @@ export const siteData = {
   },
 
   seo: {
-    siteUrl: "https://ton-domaine.com",
+    siteUrl: "https://as-transports.fr",
     title: "AS Transports | Déménagement, débarras et montage en Île-de-France",
     description:
       "AS Transports accompagne particuliers et professionnels pour les déménagements, débarras, montages de meubles et cuisines en Île-de-France, en France et vers les pays frontaliers.",
@@ -46,6 +46,7 @@ export const siteData = {
     },
     secondaryCta: {
       label: "Appeler maintenant",
+      href: "tel:+33765166125",
     },
     highlights: [
       "Devis rapide",
@@ -101,16 +102,16 @@ export const siteData = {
 
   reassuranceItems: [
     {
-      title: "Vrai terrain",
-      text: "Des photos réelles permettent de montrer concrètement les interventions menées par l’entreprise.",
+      title: "Interventions réelles",
+      text: "Des photos de terrain permettent de visualiser concrètement la qualité des déménagements, débarras et montages réalisés.",
     },
     {
-      title: "Preuve visuelle",
-      text: "Les visuels avant / après permettent d’évaluer immédiatement la qualité et le soin des prestations.",
+      title: "Travail soigné",
+      text: "Chaque prestation est réalisée avec méthode, protection adaptée et attention portée aux biens transportés.",
     },
     {
-      title: "Communication claire",
-      text: "Les informations clés sont présentées de façon simple, directe et rassurante pour faciliter la prise de décision.",
+      title: "Organisation efficace",
+      text: "Les échanges sont simples, le devis est rapide et l’intervention est planifiée avec clarté.",
     },
   ],
 
@@ -161,7 +162,7 @@ export const siteData = {
     {
       question: "Peut-on payer en carte bancaire ?",
       answer:
-        "Oui, le site est pensé pour intégrer un paiement CB sécurisé, notamment pour un acompte ou une validation plus simple de la réservation.",
+        "Oui, un paiement CB sécurisé peut être proposé pour faciliter la réservation ou le règlement selon la prestation.",
     },
   ],
 };
