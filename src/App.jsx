@@ -29,6 +29,7 @@ export default function App() {
   const {
     company,
     navLinks,
+    header,
     hero,
     trustItems,
     services,
@@ -50,6 +51,7 @@ export default function App() {
       <div className="min-h-screen bg-[#062f2b] text-white selection:bg-[#ff5a2a] selection:text-white">
         <Header
           navLinks={navLinks}
+          header={header}
           menuOpen={menuOpen}
           setMenuOpen={setMenuOpen}
           company={company}
