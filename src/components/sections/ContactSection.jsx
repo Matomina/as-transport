@@ -2,7 +2,43 @@ import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock3, ShieldCheck } from "lucide-react";
 import { fadeUp, fadeUpSoft } from "../motion/variants";
 
-export default function ContactSection({ company }) {
+const iconMap = {
+  phone: Phone,
+  email: Mail,
+  zone: MapPin,
+  availability: Clock3,
+  payment: ShieldCheck,
+};
+
+export default function ContactSection({ company, contactForm, contactSection }) {
+  const phoneHref = company?.phoneHref ?? "tel:+33765166125";
+  const phone = company?.phone ?? "07 65 16 61 25";
+  const emailHref = company?.emailHref ?? "mailto:alban.transports@gmail.com";
+  const email = company?.email ?? "alban.transports@gmail.com";
+  const whatsapp = company?.whatsapp ?? "https://wa.me/33765166125";
+  const zone =
+    company?.zone ??
+    "Intervention principalement en Île-de-France, avec possibilité de déplacement dans toute la France et les pays frontaliers.";
+
+  const formAction =
+    contactForm?.action ?? "https://formsubmit.co/alban.transports@gmail.com";
+  const formSubject =
+    contactForm?.subject ?? "Nouvelle demande de devis - AS Transports";
+  const successRedirect = contactForm?.successRedirect ?? "/merci.html";
+
+  const infoCards = contactSection?.infoCards ?? [];
+  const serviceOptions = contactSection?.serviceOptions ?? [];
+
+  const primaryCta = contactSection?.primaryCta ?? {
+    label: "Appeler maintenant",
+    href: phoneHref,
+  };
+
+  const secondaryCta = contactSection?.secondaryCta ?? {
+    label: "WhatsApp",
+    href: whatsapp,
+  };
+
   return (
     <motion.section
       id="contact"
@@ -21,107 +57,84 @@ export default function ContactSection({ company }) {
           className="rounded-[2rem] border border-white/10 bg-white/5 p-6 text-center shadow-2xl shadow-black/20 sm:p-8 md:text-left"
         >
           <div className="text-sm font-bold uppercase tracking-[0.3em] text-[#ffb39d]">
-            Contact
+            {contactSection?.contactEyebrow ?? "Contact"}
           </div>
 
           <h2 className="mt-3 text-3xl font-black leading-tight sm:text-4xl">
-            Parlons de votre besoin
+            {contactSection?.contactTitle ?? "Parlons de votre besoin"}
           </h2>
 
           <p className="mt-4 leading-7 text-white/75">
-            Vous avez un déménagement, un montage de meuble, un montage de
-            cuisine ou un débarras à prévoir ? Contactez-nous pour obtenir un
-            devis rapide, clair et adapté à votre situation.
+            {contactSection?.contactText ??
+              "Vous avez un déménagement, un montage de meuble, un montage de cuisine ou un débarras à prévoir ? Contactez-nous pour obtenir un devis rapide, clair et adapté à votre situation."}
           </p>
 
           <div className="mt-6 inline-flex rounded-full border border-[#ff5a2a]/30 bg-[#ff5a2a]/10 px-4 py-2 text-sm font-semibold text-[#ffb39d]">
-            Réponse rapide sous 24h
+            {contactSection?.responseBadge ?? "Réponse rapide sous 24h"}
           </div>
 
           <div className="mt-8 space-y-4">
-            <div className="flex items-start gap-3 rounded-[1.5rem] border border-white/10 bg-black/20 p-4 text-left">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#ff5a2a]/15 text-[#ff5a2a]">
-                <Phone className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white">Téléphone</p>
-                <a
-                  href={company.phoneHref}
-                  className="mt-1 inline-block text-sm text-white/75 transition hover:text-[#ff5a2a]"
+            {infoCards.map((item) => {
+              const Icon = iconMap[item.icon];
+
+              let content = item.text;
+              let href = null;
+
+              if (item.icon === "phone") {
+                content = phone;
+                href = phoneHref;
+              } else if (item.icon === "email") {
+                content = email;
+                href = emailHref;
+              } else if (item.icon === "zone") {
+                content = zone;
+              }
+
+              return (
+                <div
+                  key={item.title}
+                  className="flex items-start gap-3 rounded-[1.5rem] border border-white/10 bg-black/20 p-4 text-left"
                 >
-                  {company.phone}
-                </a>
-              </div>
-            </div>
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#ff5a2a]/15 text-[#ff5a2a]">
+                    {Icon ? <Icon className="h-5 w-5" /> : null}
+                  </div>
 
-            <div className="flex items-start gap-3 rounded-[1.5rem] border border-white/10 bg-black/20 p-4 text-left">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#ff5a2a]/15 text-[#ff5a2a]">
-                <Mail className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white">Email</p>
-                <a
-                  href={company.emailHref}
-                  className="mt-1 inline-block break-all text-sm text-white/75 transition hover:text-[#ff5a2a]"
-                >
-                  {company.email}
-                </a>
-              </div>
-            </div>
+                  <div>
+                    <p className="text-sm font-bold text-white">{item.title}</p>
 
-            <div className="flex items-start gap-3 rounded-[1.5rem] border border-white/10 bg-black/20 p-4 text-left">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#ff5a2a]/15 text-[#ff5a2a]">
-                <MapPin className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white">Zone d’intervention</p>
-                <p className="mt-1 text-sm leading-6 text-white/75">
-                  {company.zone}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 rounded-[1.5rem] border border-white/10 bg-black/20 p-4 text-left">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#ff5a2a]/15 text-[#ff5a2a]">
-                <Clock3 className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white">Disponibilité</p>
-                <p className="mt-1 text-sm text-white/75">
-                  Selon planning et sur demande
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 rounded-[1.5rem] border border-white/10 bg-black/20 p-4 text-left">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#ff5a2a]/15 text-[#ff5a2a]">
-                <ShieldCheck className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white">Paiement</p>
-                <p className="mt-1 text-sm leading-6 text-white/75">
-                  Possibilité d’intégrer un règlement CB sécurisé pour un
-                  acompte ou une validation plus simple.
-                </p>
-              </div>
-            </div>
+                    {href ? (
+                      <a
+                        href={href}
+                        className="mt-1 inline-block break-all text-sm text-white/75 transition hover:text-[#ff5a2a]"
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      <p className="mt-1 text-sm leading-6 text-white/75">
+                        {content}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href={company.phoneHref}
+              href={primaryCta.href}
               className="inline-flex items-center justify-center rounded-2xl bg-[#062f2b] px-6 py-3 font-bold text-white shadow-lg shadow-black/20 transition hover:scale-[1.02]"
             >
-              Appeler maintenant
+              {primaryCta.label}
             </a>
 
             <a
-              href={company.whatsapp}
+              href={secondaryCta.href}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center rounded-2xl border border-white/20 px-6 py-3 font-semibold text-white/90 transition hover:bg-white/5"
             >
-              WhatsApp
+              {secondaryCta.label}
             </a>
           </div>
         </motion.div>
@@ -134,36 +147,34 @@ export default function ContactSection({ company }) {
           className="rounded-[2rem] border border-white/10 bg-white/5 p-6 text-center shadow-2xl shadow-black/20 sm:p-8 md:text-left"
         >
           <div className="text-sm font-bold uppercase tracking-[0.3em] text-[#ffb39d]">
-            Formulaire de devis
+            {contactSection?.formEyebrow ?? "Formulaire de devis"}
           </div>
 
           <h2 className="mt-3 text-3xl font-black leading-tight sm:text-4xl">
-            Demandez votre devis
+            {contactSection?.formTitle ?? "Demandez votre devis"}
           </h2>
 
           <p className="mt-4 text-sm leading-6 text-white/70">
-            Décrivez votre besoin en quelques informations essentielles. Nous
-            revenons vers vous rapidement avec une estimation adaptée.
+            {contactSection?.formText ??
+              "Décrivez votre besoin en quelques informations essentielles. Nous revenons vers vous rapidement avec une estimation adaptée."}
           </p>
 
           <div className="mt-4 rounded-[1.5rem] border border-[#ff5a2a]/25 bg-[#ff5a2a]/10 p-4">
             <p className="text-sm font-semibold text-[#ffb39d]">
-              Conseil : indiquez la ville de départ, la ville d’arrivée, le
-              volume, l’étage et la date souhaitée pour obtenir une réponse plus
-              précise.
+              {contactSection?.adviceText ??
+                "Conseil : indiquez la ville de départ, la ville d’arrivée, le volume, l’étage et la date souhaitée pour obtenir une réponse plus précise."}
             </p>
           </div>
 
           <form
-            action="https://formsubmit.co/alban.transports@gmail.com"
+            action={formAction}
             method="POST"
             className="mt-6 grid gap-4 text-center md:text-left"
           >
-            <input type="hidden" name="_subject" value="Nouvelle demande de devis - AS Transports" />
+            <input type="hidden" name="_subject" value={formSubject} />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value="/merci.html" />
+            <input type="hidden" name="_next" value={successRedirect} />
 
-            {/* Honeypot anti-spam */}
             <input
               type="text"
               name="_honey"
@@ -229,21 +240,12 @@ export default function ContactSection({ company }) {
                 <option value="" disabled className="text-black">
                   Sélectionnez une prestation
                 </option>
-                <option value="Déménagement" className="text-black">
-                  Déménagement
-                </option>
-                <option value="Montage de meubles" className="text-black">
-                  Montage de meubles
-                </option>
-                <option value="Montage cuisine" className="text-black">
-                  Montage cuisine
-                </option>
-                <option value="Débarras" className="text-black">
-                  Débarras
-                </option>
-                <option value="Livraison" className="text-black">
-                  Livraison
-                </option>
+
+                {serviceOptions.map((option) => (
+                  <option key={option} value={option} className="text-black">
+                    {option}
+                  </option>
+                ))}
               </select>
             </label>
 
@@ -265,13 +267,13 @@ export default function ContactSection({ company }) {
               type="submit"
               className="mt-2 rounded-2xl bg-[#ff5a2a] px-6 py-4 font-bold text-white shadow-lg shadow-black/15 transition hover:scale-[1.01]"
             >
-              Envoyer ma demande de devis
+              {contactSection?.submitLabel ?? "Envoyer ma demande de devis"}
             </button>
           </form>
 
           <p className="mt-4 text-center text-xs leading-5 text-white/50 md:text-left">
-            En envoyant ce formulaire, vous transmettez les informations
-            nécessaires pour être recontacté au sujet de votre demande.
+            {contactSection?.legalNotice ??
+              "En envoyant ce formulaire, vous transmettez les informations nécessaires pour être recontacté au sujet de votre demande."}
           </p>
         </motion.div>
       </div>
