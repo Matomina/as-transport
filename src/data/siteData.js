@@ -1,4 +1,11 @@
-import { Phone, CreditCard, Zap, Truck } from "lucide-react";
+import {
+  Phone,
+  CreditCard,
+  Zap,
+  Truck,
+  ShieldCheck,
+  BadgeCheck,
+} from "lucide-react";
 
 export const siteData = {
   company: {
@@ -35,6 +42,20 @@ export const siteData = {
     { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "#contact" },
   ],
+
+  topPopup: {
+    badge: "Devis rapide",
+    title: "Besoin d’un déménagement ou d’un débarras ?",
+    text: "Contactez AS Transports pour obtenir une estimation rapide et une intervention adaptée à votre besoin en Île-de-France.",
+    primaryCta: {
+      label: "Demander un devis",
+      href: "#contact",
+    },
+    secondaryCta: {
+      label: "Appeler le",
+      href: "tel:+33765166125",
+    },
+  },
 
   header: {
     topBadges: [
@@ -199,6 +220,83 @@ export const siteData = {
 
     legalNotice:
       "En envoyant ce formulaire, vous transmettez les informations nécessaires pour être recontacté au sujet de votre demande.",
+  },
+
+  paymentSection: {
+    eyebrow: "Paiement",
+    title: "Un paiement CB sécurisé pour simplifier la réservation",
+    text: "Cette section prépare l’intégration d’un système de paiement par carte bancaire sécurisé afin de permettre un acompte en ligne, de rassurer le client et de fluidifier la validation des prestations.",
+
+    badges: [
+      "Paiement CB sécurisé",
+      "Acompte possible",
+      "Réservation plus simple",
+    ],
+
+    reassuranceCard: {
+      title: "Une vraie réassurance client",
+      text: "Afficher clairement le paiement sécurisé améliore la crédibilité du site et réduit les freins au moment de la prise de décision.",
+    },
+
+    primaryCta: {
+      label: "Demander un devis",
+      href: "#contact",
+    },
+
+    secondaryCta: {
+      label: "Appeler maintenant",
+      href: "tel:+33765166125",
+    },
+
+    items: [
+      {
+        icon: CreditCard,
+        title: "Carte bancaire",
+        text: "Un règlement CB sécurisé permet de fluidifier la réservation et de professionnaliser immédiatement le parcours client.",
+      },
+      {
+        icon: Zap,
+        title: "Acompte en ligne",
+        text: "Le paiement d’un acompte peut accélérer la validation de l’intervention et limiter les allers-retours avant réservation.",
+      },
+      {
+        icon: ShieldCheck,
+        title: "Paiement sécurisé",
+        text: "La mention d’un règlement protégé rassure le client et renforce la confiance dès les premières secondes.",
+      },
+      {
+        icon: BadgeCheck,
+        title: "Expérience plus pro",
+        text: "Un parcours devis + acompte + confirmation donne une image plus sérieuse, plus moderne et plus crédible.",
+      },
+    ],
+  },
+
+  finalCtaSection: {
+    badge: "Devis rapide",
+    title: "Besoin d’un déménagement,\nd’un débarras ou d’un montage ?",
+    text: "Demandez votre devis gratuitement dès maintenant. AS Transports vous accompagne avec une prise de contact simple, une réponse rapide et une intervention organisée selon votre besoin.",
+
+    highlights: [
+      "Réponse rapide",
+      "Paiement CB sécurisé",
+      "Intervention soignée",
+    ],
+
+    primaryCta: {
+      label: "Obtenir mon devis gratuit",
+      href: "#contact",
+    },
+
+    secondaryCta: {
+      label: "Appeler",
+      href: "tel:+33765166125",
+    },
+
+    reassuranceCard: {
+      title: "Un parcours plus simple pour le client",
+      text: "Devis, contact direct, acompte possible et future intégration du paiement sécurisé pour fluidifier la réservation.",
+    },
   },
 
   trustItems: [
