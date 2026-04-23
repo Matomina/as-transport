@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeUp, fadeUpSoft, staggerContainer } from "../motion/variants";
 
-export default function PricingSection({ packages }) {
+export default function PricingSection({ packages = [] }) {
   return (
     <motion.section
       id="tarifs"
@@ -17,7 +17,7 @@ export default function PricingSection({ packages }) {
             Tarifs
           </div>
 
-          <h2 className="mt-3 text-3xl font-black sm:text-4xl lg:text-5xl">
+          <h2 className="mt-3 text-3xl font-black text-white sm:text-4xl lg:text-5xl">
             Des repères tarifaires simples avant devis
           </h2>
 
@@ -33,25 +33,39 @@ export default function PricingSection({ packages }) {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.12 }}
-          className="grid gap-6 md:grid-cols-2 xl:grid-cols-5"
+          className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
         >
-          {packages.map((item) => (
-            <motion.article
-              key={item.title}
-              variants={fadeUpSoft}
-              className="rounded-[2rem] border border-[#ff5a2a]/25 bg-[#0a3a35] p-6 text-center shadow-xl shadow-black/20 transition hover:-translate-y-1 hover:border-[#ff5a2a]/50 md:text-left"
-            >
-              <div className="text-sm font-bold uppercase tracking-[0.25em] text-[#ffb39d]">
-                {item.note}
-              </div>
+          {packages.map((item) => {
+            const isStudent = item.title?.toLowerCase().includes("étudiant");
 
-              <div className="mt-4 text-3xl font-black">{item.title}</div>
+            return (
+              <motion.article
+                key={`${item.title}-${item.price}`}
+                variants={fadeUpSoft}
+                className={`rounded-[2rem] border p-6 text-center shadow-xl shadow-black/20 transition hover:-translate-y-1 md:text-left ${
+                  isStudent
+                    ? "border-[#ff5a2a]/50 bg-[#0d433d]"
+                    : "border-[#ff5a2a]/25 bg-[#0a3a35]"
+                }`}
+              >
+                <div className="text-sm font-bold uppercase tracking-[0.25em] text-[#ffb39d]">
+                  {item.note}
+                </div>
 
-              <div className="mt-6 rounded-2xl bg-[#ff5a2a] px-4 py-4 text-center text-xl font-black text-white">
-                {item.price}
-              </div>
-            </motion.article>
-          ))}
+                <div className="mt-4 text-2xl font-black text-white sm:text-3xl">
+                  {item.title}
+                </div>
+
+                <div
+                  className={`mt-6 rounded-2xl px-4 py-4 text-center text-xl font-black text-white ${
+                    isStudent ? "bg-[#ff6a3d]" : "bg-[#ff5a2a]"
+                  }`}
+                >
+                  {item.price}
+                </div>
+              </motion.article>
+            );
+          })}
         </motion.div>
 
         <motion.div
@@ -69,14 +83,15 @@ export default function PricingSection({ packages }) {
               Île-de-France
             </div>
 
-            <h3 className="mt-3 text-2xl font-black">
+            <h3 className="mt-3 text-2xl font-black text-white">
               Formules avec base indicative
             </h3>
 
             <p className="mt-4 leading-7 text-white/75">
               Pour les prestations en Île-de-France, plusieurs repères tarifaires
               peuvent être affichés pour aider le client à se situer avant la
-              demande de devis.
+              demande de devis, y compris une formule étudiant adaptée aux petits
+              volumes et aux budgets plus serrés.
             </p>
           </motion.div>
 
@@ -85,17 +100,17 @@ export default function PricingSection({ packages }) {
             className="rounded-[2rem] border border-white/10 bg-white/5 p-6 text-center shadow-xl shadow-black/15 md:text-left"
           >
             <div className="text-sm font-bold uppercase tracking-[0.25em] text-[#ffb39d]">
-              France & Europe frontalière
+              France & Europe
             </div>
 
-            <h3 className="mt-3 text-2xl font-black">
+            <h3 className="mt-3 text-2xl font-black text-white">
               Étude personnalisée sur devis
             </h3>
 
             <p className="mt-4 leading-7 text-white/75">
               Pour toute intervention hors Île-de-France, une étude personnalisée
               permet de proposer un devis plus précis et cohérent avec le besoin
-              réel.
+              réel, la distance, les accès et le volume à transporter.
             </p>
           </motion.div>
         </motion.div>

@@ -16,14 +16,16 @@ export const siteData = {
     email: "alban.transports@gmail.com",
     emailHref: "mailto:alban.transports@gmail.com",
     whatsapp: "https://wa.me/33765166125",
-    zone: "Intervention principalement en Île-de-France, avec possibilité de déplacement dans toute la France et les pays frontaliers.",
+    instagram: "https://instagram.com/",
+    snapchat: "https://snapchat.com/add/",
+    zone: "Intervention principalement en Île-de-France, avec possibilité de déplacement dans toute la France et en Europe selon la prestation.",
   },
 
   seo: {
     siteUrl: "https://as-transports.fr",
     title: "AS Transports | Déménagement, débarras et montage en Île-de-France",
     description:
-      "AS Transports accompagne particuliers et professionnels pour les déménagements, débarras, montages de meubles et cuisines en Île-de-France, en France et vers les pays frontaliers.",
+      "AS Transports accompagne particuliers et professionnels pour les déménagements, débarras, montages de meubles et cuisines en Île-de-France, partout en France et en Europe selon la prestation.",
     ogImage: "/images/camion-demenagement.jpg",
     favicon: "/images/favicon.svg",
   },
@@ -68,8 +70,8 @@ export const siteData = {
         label: "Devis rapide",
       },
       {
-        icon: Truck,
-        label: "Intervention rapide",
+        icon: CreditCard,
+        label: "Paiement en 3x / 4x sans frais",
       },
     ],
     primaryCta: {
@@ -81,8 +83,8 @@ export const siteData = {
   },
 
   hero: {
-    badge: "Île-de-France · France · Europe frontalière",
-    title: "Déménagement rapide et sans stress en Île-de-France",
+    badge: "Île-de-France · France · Europe",
+    title: "Déménagement rapide et sans stress en Île-de-France, France et Europe",
     text: "AS Transports accompagne particuliers et professionnels avec une intervention sérieuse, un devis rapide et une organisation efficace pour vos déménagements, débarras, montages et livraisons.",
     primaryCta: {
       label: "Obtenir mon devis gratuit",
@@ -95,7 +97,7 @@ export const siteData = {
     highlights: [
       "Devis rapide",
       "Paiement CB sécurisé",
-      "Intervention soignée",
+      "Paiement en 3x / 4x sans frais",
       "Disponible 7j/7",
     ],
     stats: [
@@ -104,8 +106,8 @@ export const siteData = {
         text: "Une prise de contact simple pour obtenir une estimation claire.",
       },
       {
-        value: "Intervention soignée",
-        text: "Protection, organisation et sérieux sur chaque prestation.",
+        value: "Paiement en 3x / 4x sans frais",
+        text: "Une solution plus souple pour réserver plus sereinement selon la prestation.",
       },
       {
         value: "Particuliers & pros",
@@ -124,8 +126,12 @@ export const siteData = {
     paymentCard: {
       eyebrow: "Paiement",
       title: "Paiement CB sécurisé",
-      text: "Possibilité d’intégrer un règlement sécurisé en ligne pour acompte ou validation plus rapide de la réservation.",
-      tags: ["Acompte possible", "Réservation plus simple"],
+      text: "Possibilité d’intégrer un règlement sécurisé en ligne pour acompte, validation plus rapide de la réservation ou paiement en 3x / 4x sans frais selon la prestation.",
+      tags: [
+        "Acompte possible",
+        "Réservation plus simple",
+        "3x / 4x sans frais",
+      ],
     },
     quoteCard: {
       eyebrow: "Réactivité",
@@ -186,7 +192,7 @@ export const siteData = {
       {
         icon: "payment",
         title: "Paiement",
-        text: "Possibilité d’intégrer un règlement CB sécurisé pour un acompte ou une validation plus simple.",
+        text: "Possibilité d’intégrer un règlement CB sécurisé pour un acompte, une validation plus simple ou un paiement en plusieurs fois selon la prestation.",
         type: "text",
       },
     ],
@@ -200,6 +206,24 @@ export const siteData = {
       label: "WhatsApp",
       href: "https://wa.me/33765166125",
     },
+
+    socialCtas: [
+      {
+        label: "WhatsApp",
+        href: "https://wa.me/33765166125",
+        type: "whatsapp",
+      },
+      {
+        label: "Snapchat",
+        href: "https://snapchat.com/add/",
+        type: "snapchat",
+      },
+      {
+        label: "Instagram",
+        href: "https://instagram.com/",
+        type: "instagram",
+      },
+    ],
 
     formEyebrow: "Formulaire de devis",
     formTitle: "Demandez votre devis",
@@ -225,17 +249,18 @@ export const siteData = {
   paymentSection: {
     eyebrow: "Paiement",
     title: "Un paiement CB sécurisé pour simplifier la réservation",
-    text: "Cette section prépare l’intégration d’un système de paiement par carte bancaire sécurisé afin de permettre un acompte en ligne, de rassurer le client et de fluidifier la validation des prestations.",
+    text: "Cette section prépare l’intégration d’un système de paiement par carte bancaire sécurisé afin de permettre un acompte en ligne, un paiement en plusieurs fois, une validation plus fluide des prestations et une meilleure clarté sur les conditions de réservation.",
 
     badges: [
       "Paiement CB sécurisé",
       "Acompte possible",
       "Réservation plus simple",
+      "3x / 4x sans frais",
     ],
 
     reassuranceCard: {
       title: "Une vraie réassurance client",
-      text: "Afficher clairement le paiement sécurisé améliore la crédibilité du site et réduit les freins au moment de la prise de décision.",
+      text: "Afficher clairement le paiement sécurisé, le paiement en plusieurs fois et les conditions de réservation améliore la crédibilité du site et réduit les freins au moment de la prise de décision.",
     },
 
     primaryCta: {
@@ -256,18 +281,18 @@ export const siteData = {
       },
       {
         icon: Zap,
-        title: "Acompte en ligne",
-        text: "Le paiement d’un acompte peut accélérer la validation de l’intervention et limiter les allers-retours avant réservation.",
+        title: "Paiement en plusieurs fois",
+        text: "Possibilité de régler en 3x ou 4x sans frais selon la prestation et le montant validé.",
       },
       {
         icon: ShieldCheck,
-        title: "Paiement sécurisé",
-        text: "La mention d’un règlement protégé rassure le client et renforce la confiance dès les premières secondes.",
+        title: "Paiement à la validation",
+        text: "Le règlement peut être demandé au moment de la validation de la prestation ou de la réservation selon la formule retenue.",
       },
       {
         icon: BadgeCheck,
-        title: "Expérience plus pro",
-        text: "Un parcours devis + acompte + confirmation donne une image plus sérieuse, plus moderne et plus crédible.",
+        title: "Frais de réservation si annulation",
+        text: "Des frais de réservation peuvent être appliqués en cas d’annulation après validation ou blocage du créneau.",
       },
     ],
   },
@@ -281,6 +306,7 @@ export const siteData = {
       "Réponse rapide",
       "Paiement CB sécurisé",
       "Intervention soignée",
+      "3x / 4x sans frais",
     ],
 
     primaryCta: {
@@ -295,12 +321,12 @@ export const siteData = {
 
     reassuranceCard: {
       title: "Un parcours plus simple pour le client",
-      text: "Devis, contact direct, acompte possible et future intégration du paiement sécurisé pour fluidifier la réservation.",
+      text: "Devis, contact direct, acompte possible, paiement en plusieurs fois et future intégration du paiement sécurisé pour fluidifier la réservation.",
     },
   },
 
   trustItems: [
-    { icon: Phone, label: "Téléphone direct" },
+    { icon: CreditCard, label: "Paiement en 3x / 4x sans frais" },
     { icon: CreditCard, label: "Paiement CB sécurisé" },
     { icon: Zap, label: "Devis rapide" },
     { icon: Truck, label: "Intervention rapide" },
@@ -365,6 +391,11 @@ export const siteData = {
       note: "Formule Île-de-France",
     },
     {
+      title: "Formule étudiant",
+      price: "À partir de 400 € TTC",
+      note: "Formule étudiant en Île-de-France",
+    },
+    {
       title: "F3 / F4",
       price: "À partir de 700 € TTC",
       note: "Formule Île-de-France",
@@ -380,7 +411,7 @@ export const siteData = {
       note: "Étude selon volume",
     },
     {
-      title: "France / Europe frontalière",
+      title: "France / Europe",
       price: "Sur devis",
       note: "Étude personnalisée",
     },
@@ -390,7 +421,7 @@ export const siteData = {
     {
       question: "Dans quelle zone intervenez-vous ?",
       answer:
-        "AS Transports intervient principalement en Île-de-France, avec possibilité de déplacement dans toute la France et les pays frontaliers selon la prestation demandée.",
+        "AS Transports intervient principalement en Île-de-France, avec possibilité de déplacement dans toute la France et en Europe selon la prestation demandée.",
     },
     {
       question: "Comment obtenir un devis ?",
@@ -406,6 +437,11 @@ export const siteData = {
       question: "Peut-on payer en carte bancaire ?",
       answer:
         "Oui, un paiement CB sécurisé peut être proposé pour faciliter la réservation ou le règlement selon la prestation.",
+    },
+    {
+      question: "Proposez-vous un paiement en plusieurs fois ?",
+      answer:
+        "Selon la prestation et le montant, un paiement en 3x ou 4x sans frais peut être proposé afin de faciliter la réservation.",
     },
   ],
 };

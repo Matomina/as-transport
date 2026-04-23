@@ -32,7 +32,7 @@ export default function PaymentSection({ paymentSection, company }) {
       viewport={{ once: true, amount: 0.15 }}
       className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8 lg:py-24"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,90,42,0.08),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,90,42,0.08),transparent_60%)]" />
 
       <div className="relative grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
         <motion.div
@@ -46,7 +46,7 @@ export default function PaymentSection({ paymentSection, company }) {
             {section.eyebrow ?? "Paiement"}
           </div>
 
-          <h2 className="mt-3 text-3xl font-black leading-tight sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-black leading-tight text-white sm:text-4xl">
             {section.title ??
               "Un paiement CB sécurisé pour simplifier la réservation"}
           </h2>
@@ -56,20 +56,22 @@ export default function PaymentSection({ paymentSection, company }) {
               "Cette section prépare l’intégration d’un système de paiement par carte bancaire sécurisé afin de permettre un acompte en ligne, de rassurer le client et de fluidifier la validation des prestations."}
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            {badges.map((badge) => (
-              <span
-                key={badge}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/80"
-              >
-                {badge}
-              </span>
-            ))}
-          </div>
+          {badges.length > 0 && (
+            <div className="mt-6 flex flex-wrap gap-3">
+              {badges.map((badge) => (
+                <span
+                  key={badge}
+                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/85"
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+          )}
 
           <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-black/20 p-4">
             <div className="flex items-start gap-3">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#ff5a2a] text-white">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#ff5a2a] text-white shadow-lg shadow-black/20">
                 <ShieldCheck className="h-5 w-5" />
               </div>
 
@@ -87,7 +89,7 @@ export default function PaymentSection({ paymentSection, company }) {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
               href={primaryCta.href}
-              className="inline-flex items-center justify-center rounded-2xl bg-[#ff5a2a] px-5 py-3 font-bold text-white shadow-lg shadow-black/20 transition hover:scale-[1.02]"
+              className="inline-flex items-center justify-center rounded-2xl bg-[#ff5a2a] px-5 py-3 font-bold text-white shadow-lg shadow-black/20 transition hover:scale-[1.02] hover:bg-[#ff6a3d]"
             >
               {primaryCta.label}
             </a>
@@ -121,7 +123,7 @@ export default function PaymentSection({ paymentSection, company }) {
                   {Icon ? <Icon className="h-5 w-5" /> : null}
                 </div>
 
-                <h3 className="mt-4 text-2xl font-black text-white">
+                <h3 className="mt-4 text-xl font-black text-white sm:text-2xl">
                   {item.title}
                 </h3>
 

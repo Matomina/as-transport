@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock3, ShieldCheck } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock3,
+  ShieldCheck,
+  MessageCircle,
+} from "lucide-react";
 import { fadeUp, fadeUpSoft } from "../motion/variants";
 
 const iconMap = {
@@ -10,7 +17,56 @@ const iconMap = {
   payment: ShieldCheck,
 };
 
-export default function ContactSection({ company, contactForm, contactSection }) {
+const socialStyleMap = {
+  whatsapp:
+    "border-green-500/25 bg-green-500/10 text-green-300 hover:bg-green-500/15",
+  instagram:
+    "border-pink-500/25 bg-pink-500/10 text-pink-300 hover:bg-pink-500/15",
+  snapchat:
+    "border-yellow-400/30 bg-yellow-400/10 text-yellow-200 hover:bg-yellow-400/15",
+  default:
+    "border-white/20 bg-white/5 text-white/90 hover:bg-white/10",
+};
+
+function SocialIcon({ type }) {
+  if (type === "whatsapp") {
+    return <MessageCircle className="h-4 w-4" />;
+  }
+
+  if (type === "instagram") {
+  return <InstagramIcon className="h-4 w-4" />;
+  }
+
+  if (type === "snapchat") {
+    return <span className="text-sm leading-none">👻</span>;
+  }
+
+  return null;
+}
+
+function InstagramIcon(props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37a4 4 0 1 1-7.75 1.26 4 4 0 0 1 7.75-1.26z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
+
+export default function ContactSection({
+  company,
+  contactForm,
+  contactSection,
+}) {
   const phoneHref = company?.phoneHref ?? "tel:+33765166125";
   const phone = company?.phone ?? "07 65 16 61 25";
   const emailHref = company?.emailHref ?? "mailto:alban.transports@gmail.com";
@@ -38,6 +94,17 @@ export default function ContactSection({ company, contactForm, contactSection })
     label: "WhatsApp",
     href: whatsapp,
   };
+
+  const socialCtas =
+    contactSection?.socialCtas?.length > 0
+      ? contactSection.socialCtas
+      : [
+          {
+            label: secondaryCta.label ?? "WhatsApp",
+            href: secondaryCta.href ?? whatsapp,
+            type: "whatsapp",
+          },
+        ];
 
   return (
     <motion.section
@@ -120,7 +187,7 @@ export default function ContactSection({ company, contactForm, contactSection })
             })}
           </div>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
               href={primaryCta.href}
               className="inline-flex items-center justify-center rounded-2xl bg-[#062f2b] px-6 py-3 font-bold text-white shadow-lg shadow-black/20 transition hover:scale-[1.02]"
@@ -128,14 +195,25 @@ export default function ContactSection({ company, contactForm, contactSection })
               {primaryCta.label}
             </a>
 
-            <a
-              href={secondaryCta.href}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-2xl border border-white/20 px-6 py-3 font-semibold text-white/90 transition hover:bg-white/5"
-            >
-              {secondaryCta.label}
-            </a>
+            {socialCtas.map((item) => {
+              const tone =
+                socialStyleMap[item.type] ?? socialStyleMap.default;
+
+              return (
+                <a
+                  key={`${item.type}-${item.label}`}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`inline-flex items-center justify-center gap-2 rounded-2xl border px-6 py-3 font-semibold transition ${tone}`}
+                  aria-label={item.label}
+                  title={item.label}
+                >
+                  <SocialIcon type={item.type} />
+                  <span>{item.label}</span>
+                </a>
+              );
+            })}
           </div>
         </motion.div>
 
