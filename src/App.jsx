@@ -27,20 +27,21 @@ export default function App() {
   }, []);
 
   const {
-    company,
-    navLinks,
-    header,
-    hero,
-    footer,
-    contactForm,
-    contactSection,
-    trustItems,
-    services,
-    steps,
-    reassuranceItems,
-    packages,
-    faqItems,
-  } = siteData;
+  company,
+  navLinks,
+  header,
+  hero,
+  footer,
+  contactForm,
+  contactSection,
+  paymentSection,
+  trustItems,
+  services,
+  steps,
+  reassuranceItems,
+  packages,
+  faqItems,
+} = siteData;
 
   return (
     <>
