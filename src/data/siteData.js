@@ -133,6 +133,74 @@ export const siteData = {
     copyright: "© AS Transports · Tous droits réservés",
   },
 
+  contactSection: {
+    contactEyebrow: "Contact",
+    contactTitle: "Parlons de votre besoin",
+    contactText:
+      "Vous avez un déménagement, un montage de meuble, un montage de cuisine ou un débarras à prévoir ? Contactez-nous pour obtenir un devis rapide, clair et adapté à votre situation.",
+    responseBadge: "Réponse rapide sous 24h",
+
+    infoCards: [
+      {
+        icon: "phone",
+        title: "Téléphone",
+        type: "link",
+      },
+      {
+        icon: "email",
+        title: "Email",
+        type: "link",
+      },
+      {
+        icon: "zone",
+        title: "Zone d’intervention",
+        type: "text",
+      },
+      {
+        icon: "availability",
+        title: "Disponibilité",
+        text: "Selon planning et sur demande",
+        type: "text",
+      },
+      {
+        icon: "payment",
+        title: "Paiement",
+        text: "Possibilité d’intégrer un règlement CB sécurisé pour un acompte ou une validation plus simple.",
+        type: "text",
+      },
+    ],
+
+    primaryCta: {
+      label: "Appeler maintenant",
+      href: "tel:+33765166125",
+    },
+
+    secondaryCta: {
+      label: "WhatsApp",
+      href: "https://wa.me/33765166125",
+    },
+
+    formEyebrow: "Formulaire de devis",
+    formTitle: "Demandez votre devis",
+    formText:
+      "Décrivez votre besoin en quelques informations essentielles. Nous revenons vers vous rapidement avec une estimation adaptée.",
+    adviceText:
+      "Conseil : indiquez la ville de départ, la ville d’arrivée, le volume, l’étage et la date souhaitée pour obtenir une réponse plus précise.",
+
+    serviceOptions: [
+      "Déménagement",
+      "Montage de meubles",
+      "Montage cuisine",
+      "Débarras",
+      "Livraison",
+    ],
+
+    submitLabel: "Envoyer ma demande de devis",
+
+    legalNotice:
+      "En envoyant ce formulaire, vous transmettez les informations nécessaires pour être recontacté au sujet de votre demande.",
+  },
+
   trustItems: [
     { icon: Phone, label: "Téléphone direct" },
     { icon: CreditCard, label: "Paiement CB sécurisé" },
