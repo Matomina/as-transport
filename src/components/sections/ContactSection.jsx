@@ -9,6 +9,12 @@ import {
 } from "lucide-react";
 import { fadeUp, fadeUpSoft } from "../motion/variants";
 
+const inputClass =
+  "rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-[#ff5a2a]";
+
+const selectClass =
+  "rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition focus:border-[#ff5a2a]";
+
 const iconMap = {
   phone: Phone,
   email: Mail,
@@ -28,13 +34,38 @@ const socialStyleMap = {
     "border-white/20 bg-white/5 text-white/90 hover:bg-white/10",
 };
 
+const housingOptions = [
+  "Studio",
+  "Appartement",
+  "Maison",
+  "Local professionnel",
+  "Cave / garage",
+  "Autre",
+];
+
+const volumeOptions = [
+  "Petit volume",
+  "Moins de 10 m³",
+  "10 à 20 m³",
+  "20 à 30 m³",
+  "30 m³ et plus",
+  "À estimer",
+];
+
+const callbackOptions = [
+  "Matin",
+  "Après-midi",
+  "Soir",
+  "Peu importe",
+];
+
 function SocialIcon({ type }) {
   if (type === "whatsapp") {
     return <MessageCircle className="h-4 w-4" />;
   }
 
   if (type === "instagram") {
-  return <InstagramIcon className="h-4 w-4" />;
+    return <InstagramIcon className="h-4 w-4" />;
   }
 
   if (type === "snapchat") {
@@ -271,7 +302,7 @@ export default function ContactSection({
                   placeholder="Votre nom"
                   autoComplete="name"
                   aria-label="Votre nom"
-                  className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-[#ff5a2a]"
+                  className={inputClass}
                 />
               </label>
 
@@ -286,7 +317,7 @@ export default function ContactSection({
                   placeholder="Votre téléphone"
                   autoComplete="tel"
                   aria-label="Votre téléphone"
-                  className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-[#ff5a2a]"
+                  className={inputClass}
                 />
               </label>
             </div>
@@ -300,7 +331,7 @@ export default function ContactSection({
                 placeholder="Votre adresse e-mail"
                 autoComplete="email"
                 aria-label="Votre adresse e-mail"
-                className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-[#ff5a2a]"
+                className={inputClass}
               />
             </label>
 
@@ -313,7 +344,7 @@ export default function ContactSection({
                 required
                 defaultValue=""
                 aria-label="Type de prestation"
-                className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition focus:border-[#ff5a2a]"
+                className={selectClass}
               >
                 <option value="" disabled className="text-black">
                   Sélectionnez une prestation
@@ -327,6 +358,200 @@ export default function ContactSection({
               </select>
             </label>
 
+            <div className="grid gap-4 sm:grid-cols-2">
+              <label className="grid gap-2">
+                <span className="text-sm font-semibold text-white/85">
+                  Ville de départ
+                </span>
+                <input
+                  type="text"
+                  name="Ville de départ"
+                  placeholder="Ex : Paris"
+                  autoComplete="address-level2"
+                  className={inputClass}
+                />
+              </label>
+
+              <label className="grid gap-2">
+                <span className="text-sm font-semibold text-white/85">
+                  Ville d’arrivée
+                </span>
+                <input
+                  type="text"
+                  name="Ville d’arrivée"
+                  placeholder="Ex : Créteil"
+                  autoComplete="address-level2"
+                  className={inputClass}
+                />
+              </label>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <label className="grid gap-2">
+                <span className="text-sm font-semibold text-white/85">
+                  Date souhaitée
+                </span>
+                <input
+                  type="date"
+                  name="Date souhaitée"
+                  className={inputClass}
+                />
+              </label>
+
+              <label className="grid gap-2">
+                <span className="text-sm font-semibold text-white/85">
+                  Type de logement / lieu
+                </span>
+                <select
+                  name="Type de logement"
+                  defaultValue=""
+                  className={selectClass}
+                >
+                  <option value="" disabled className="text-black">
+                    Sélectionnez une option
+                  </option>
+
+                  {housingOptions.map((option) => (
+                    <option key={option} value={option} className="text-black">
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <label className="grid gap-2">
+                <span className="text-sm font-semibold text-white/85">
+                  Étage départ
+                </span>
+                <input
+                  type="text"
+                  name="Étage départ"
+                  placeholder="Ex : 3e étage"
+                  className={inputClass}
+                />
+              </label>
+
+              <label className="grid gap-2">
+                <span className="text-sm font-semibold text-white/85">
+                  Étage arrivée
+                </span>
+                <input
+                  type="text"
+                  name="Étage arrivée"
+                  placeholder="Ex : Rez-de-chaussée"
+                  className={inputClass}
+                />
+              </label>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <label className="grid gap-2">
+                <span className="text-sm font-semibold text-white/85">
+                  Ascenseur au départ
+                </span>
+                <select
+                  name="Ascenseur départ"
+                  defaultValue=""
+                  className={selectClass}
+                >
+                  <option value="" disabled className="text-black">
+                    Sélectionnez une option
+                  </option>
+                  <option value="Oui" className="text-black">
+                    Oui
+                  </option>
+                  <option value="Non" className="text-black">
+                    Non
+                  </option>
+                  <option value="Je ne sais pas" className="text-black">
+                    Je ne sais pas
+                  </option>
+                </select>
+              </label>
+
+              <label className="grid gap-2">
+                <span className="text-sm font-semibold text-white/85">
+                  Ascenseur à l’arrivée
+                </span>
+                <select
+                  name="Ascenseur arrivée"
+                  defaultValue=""
+                  className={selectClass}
+                >
+                  <option value="" disabled className="text-black">
+                    Sélectionnez une option
+                  </option>
+                  <option value="Oui" className="text-black">
+                    Oui
+                  </option>
+                  <option value="Non" className="text-black">
+                    Non
+                  </option>
+                  <option value="Je ne sais pas" className="text-black">
+                    Je ne sais pas
+                  </option>
+                </select>
+              </label>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <label className="grid gap-2">
+                <span className="text-sm font-semibold text-white/85">
+                  Volume approximatif
+                </span>
+                <select
+                  name="Volume approximatif"
+                  defaultValue=""
+                  className={selectClass}
+                >
+                  <option value="" disabled className="text-black">
+                    Sélectionnez une estimation
+                  </option>
+
+                  {volumeOptions.map((option) => (
+                    <option key={option} value={option} className="text-black">
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              <label className="grid gap-2">
+                <span className="text-sm font-semibold text-white/85">
+                  Créneau de rappel préféré
+                </span>
+                <select
+                  name="Créneau de rappel préféré"
+                  defaultValue=""
+                  className={selectClass}
+                >
+                  <option value="" disabled className="text-black">
+                    Sélectionnez un créneau
+                  </option>
+
+                  {callbackOptions.map((option) => (
+                    <option key={option} value={option} className="text-black">
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+
+            <label className="grid gap-2">
+              <span className="text-sm font-semibold text-white/85">
+                Contraintes particulières
+              </span>
+              <textarea
+                name="Contraintes particulières"
+                rows="4"
+                placeholder="Stationnement, accès difficile, objets lourds, besoin de démontage, horaires particuliers..."
+                className={inputClass}
+              />
+            </label>
+
             <label className="grid gap-2">
               <span className="text-sm font-semibold text-white/85">
                 Message
@@ -337,7 +562,7 @@ export default function ContactSection({
                 rows="6"
                 placeholder="Décrivez votre besoin : volume, ville de départ, ville d'arrivée, étage, date souhaitée..."
                 aria-label="Décrivez votre besoin"
-                className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-[#ff5a2a]"
+                className={inputClass}
               />
             </label>
 
