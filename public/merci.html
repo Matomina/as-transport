@@ -1,51 +1,257 @@
 <!doctype html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Merci - AS Transports</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #062f2b;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 24px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        .card {
-            max-width: 640px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 32px;
-            text-align: center;
-        }
+  <title>Merci pour votre demande - AS Transports</title>
+  <meta
+    name="description"
+    content="Votre demande de devis a bien été envoyée à AS Transports."
+  />
+  <meta name="robots" content="noindex, follow" />
 
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 14px 22px;
-            border-radius: 16px;
-            background: #ff5a2a;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
+  <style>
+    :root {
+      --bg: #062f2b;
+      --bg-card: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.12);
+      --orange: #ff5a2a;
+      --orange-soft: #ffb39d;
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, 0.74);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family:
+        Arial,
+        sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(255, 90, 42, 0.16), transparent 36%),
+        linear-gradient(180deg, #062f2b 0%, #041f1d 100%);
+      color: var(--text);
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 920px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      background: var(--bg-card);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+      padding: 28px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255, 90, 42, 0.14), transparent 38%);
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 90, 42, 0.32);
+      border-radius: 999px;
+      background: rgba(255, 90, 42, 0.1);
+      color: var(--orange-soft);
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 22px auto 0;
+      max-width: 720px;
+      font-size: clamp(32px, 6vw, 56px);
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .lead {
+      margin: 18px auto 0;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .info {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(0, 0, 0, 0.18);
+      padding: 18px;
+      text-align: left;
+    }
+
+    .info strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .info span {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      border-radius: 18px;
+      padding: 14px 20px;
+      font-weight: 800;
+      text-decoration: none;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+      box-shadow: 0 12px 30px rgba(255, 90, 42, 0.22);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: white;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn-whatsapp {
+      border: 1px solid rgba(37, 211, 102, 0.32);
+      color: #c8ffd9;
+      background: rgba(37, 211, 102, 0.1);
+    }
+
+    .small {
+      margin-top: 22px;
+      color: rgba(255, 255, 255, 0.52);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    @media (min-width: 720px) {
+      .card {
+        padding: 48px;
+      }
+
+      .info-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .actions {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        min-width: 190px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="card">
-        <h1>Merci pour votre demande</h1>
-        <p>Votre message a bien été envoyé. Nous reviendrons vers vous dans les meilleurs délais.</p>
-        <a href="/">Retour au site</a>
-    </div>
-</body>
+  <main class="page">
+    <section class="card" aria-labelledby="page-title">
+      <div class="content">
+        <div class="badge">Demande envoyée</div>
 
+        <h1 id="page-title">Merci pour votre demande</h1>
+
+        <p class="lead">
+          Votre message a bien été transmis à AS Transports. Nous revenons vers vous
+          rapidement afin d’étudier votre besoin et de vous proposer une estimation adaptée.
+        </p>
+
+        <div class="info-grid" aria-label="Informations utiles">
+          <div class="info">
+            <strong>Délai de réponse</strong>
+            <span>Votre demande est étudiée dans les meilleurs délais, généralement sous 24h.</span>
+          </div>
+
+          <div class="info">
+            <strong>Pour accélérer le devis</strong>
+            <span>Préparez la ville de départ, la ville d’arrivée, le volume, les étages et la date souhaitée.</span>
+          </div>
+
+          <div class="info">
+            <strong>Besoin urgent ?</strong>
+            <span>Vous pouvez appeler directement ou envoyer un message WhatsApp.</span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="/">Retour au site</a>
+          <a class="btn btn-secondary" href="tel:+33765166125">Appeler maintenant</a>
+          <a
+            class="btn btn-whatsapp"
+            href="https://wa.me/33765166125"
+            target="_blank"
+            rel="noreferrer"
+          >
+            WhatsApp
+          </a>
+        </div>
+
+        <p class="small">
+          AS Transports — Déménagement, montage, débarras et livraison en Île-de-France,
+          France et Europe selon la prestation.
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
 </html>
