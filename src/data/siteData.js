@@ -16,16 +16,20 @@ export const siteData = {
     email: "alban.transports@gmail.com",
     emailHref: "mailto:alban.transports@gmail.com",
     whatsapp: "https://wa.me/33765166125",
-    instagram: "https://instagram.com/",
-    snapchat: "https://snapchat.com/add/",
-    zone: "Intervention principalement en Île-de-France, avec possibilité de déplacement dans toute la France et en Europe selon la prestation.",
+
+    // À remplacer uniquement quand les vrais comptes client sont disponibles.
+    instagram: "",
+    snapchat: "",
+
+    zone:
+      "Intervention principalement en Île-de-France, avec possibilité de déplacement dans toute la France et en Europe selon la prestation.",
   },
 
   seo: {
     siteUrl: "https://as-transports.fr",
     title: "AS Transports | Déménagement, débarras et montage en Île-de-France",
     description:
-      "AS Transports accompagne particuliers et professionnels pour les déménagements, débarras, montages de meubles et cuisines en Île-de-France, partout en France et en Europe selon la prestation.",
+      "AS Transports accompagne particuliers et professionnels pour les déménagements, débarras, montages de meubles, montages de cuisines et livraisons en Île-de-France, en France et en Europe selon la prestation.",
     ogImage: "/images/camion-demenagement.jpg",
     favicon: "/images/favicon.svg",
   },
@@ -41,37 +45,24 @@ export const siteData = {
     { label: "Comment ça marche", href: "#etapes" },
     { label: "Réalisations", href: "#realisations" },
     { label: "Tarifs", href: "#tarifs" },
+    { label: "Paiement", href: "#paiement" },
     { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "#contact" },
   ],
 
-  topPopup: {
-    badge: "Devis rapide",
-    title: "Besoin d’un déménagement ou d’un débarras ?",
-    text: "Contactez AS Transports pour obtenir une estimation rapide et une intervention adaptée à votre besoin en Île-de-France.",
-    primaryCta: {
-      label: "Demander un devis",
-      href: "#contact",
-    },
-    secondaryCta: {
-      label: "Appeler le",
-      href: "tel:+33765166125",
-    },
-  },
-
   header: {
     topBadges: [
       {
-        icon: CreditCard,
-        label: "Paiement CB sécurisé",
+        icon: ShieldCheck,
+        label: "Devis clair",
       },
       {
         icon: Zap,
-        label: "Devis rapide",
+        label: "Réponse rapide",
       },
       {
         icon: CreditCard,
-        label: "Paiement en 3x / 4x sans frais",
+        label: "Paiement sécurisé en préparation",
       },
     ],
     primaryCta: {
@@ -84,8 +75,8 @@ export const siteData = {
 
   hero: {
     badge: "Île-de-France · France · Europe",
-    title: "Déménagement rapide et sans stress en Île-de-France, France et Europe",
-    text: "AS Transports accompagne particuliers et professionnels avec une intervention sérieuse, un devis rapide et une organisation efficace pour vos déménagements, débarras, montages et livraisons.",
+    title: "Déménagement rapide et organisé en Île-de-France, France et Europe",
+    text: "AS Transports accompagne particuliers et professionnels avec une intervention sérieuse, un devis clair et une organisation efficace pour vos déménagements, débarras, montages et livraisons.",
     primaryCta: {
       label: "Obtenir mon devis gratuit",
       href: "#contact",
@@ -96,22 +87,22 @@ export const siteData = {
     },
     highlights: [
       "Devis rapide",
-      "Paiement CB sécurisé",
-      "Paiement en 3x / 4x sans frais",
-      "Disponible 7j/7",
+      "Réponse claire",
+      "Intervention soignée",
+      "Particuliers & professionnels",
     ],
     stats: [
       {
         value: "Réponse rapide",
-        text: "Une prise de contact simple pour obtenir une estimation claire.",
+        text: "Une prise de contact simple pour obtenir une première estimation claire.",
       },
       {
-        value: "Paiement en 3x / 4x sans frais",
-        text: "Une solution plus souple pour réserver plus sereinement selon la prestation.",
+        value: "Devis personnalisé",
+        text: "Chaque demande est étudiée selon le volume, la distance, les accès et la prestation souhaitée.",
       },
       {
         value: "Particuliers & pros",
-        text: "Des solutions adaptées selon le volume et le type de besoin.",
+        text: "Des solutions adaptées selon le type de besoin et les contraintes terrain.",
       },
     ],
     showcase: {
@@ -121,16 +112,16 @@ export const siteData = {
       imageAlt: "Chargement d'un camion de déménagement",
       title:
         "Une équipe réactive pour vos besoins de transport et de déménagement",
-      text: "Une présentation plus concrète du terrain, du matériel et du sérieux de l’intervention pour rassurer immédiatement le client.",
+      text: "Une présentation concrète du terrain, du matériel et du sérieux de l’intervention pour rassurer immédiatement le client.",
     },
     paymentCard: {
       eyebrow: "Paiement",
-      title: "Paiement CB sécurisé",
-      text: "Possibilité d’intégrer un règlement sécurisé en ligne pour acompte, validation plus rapide de la réservation ou paiement en 3x / 4x sans frais selon la prestation.",
+      title: "Paiement sécurisé en préparation",
+      text: "Le site prépare une future intégration de paiement sécurisé pour faciliter la réservation, l’acompte ou la validation de certaines prestations après devis.",
       tags: [
-        "Acompte possible",
+        "Acompte possible après devis",
         "Réservation plus simple",
-        "3x / 4x sans frais",
+        "Intégration à venir",
       ],
     },
     quoteCard: {
@@ -192,7 +183,7 @@ export const siteData = {
       {
         icon: "payment",
         title: "Paiement",
-        text: "Possibilité d’intégrer un règlement CB sécurisé pour un acompte, une validation plus simple ou un paiement en plusieurs fois selon la prestation.",
+        text: "Une solution de paiement sécurisé pourra être proposée après validation du devis selon la prestation.",
         type: "text",
       },
     ],
@@ -213,16 +204,6 @@ export const siteData = {
         href: "https://wa.me/33765166125",
         type: "whatsapp",
       },
-      {
-        label: "Snapchat",
-        href: "https://snapchat.com/add/",
-        type: "snapchat",
-      },
-      {
-        label: "Instagram",
-        href: "https://instagram.com/",
-        type: "instagram",
-      },
     ],
 
     formEyebrow: "Formulaire de devis",
@@ -230,7 +211,7 @@ export const siteData = {
     formText:
       "Décrivez votre besoin en quelques informations essentielles. Nous revenons vers vous rapidement avec une estimation adaptée.",
     adviceText:
-      "Conseil : indiquez la ville de départ, la ville d’arrivée, le volume, l’étage et la date souhaitée pour obtenir une réponse plus précise.",
+      "Conseil : indiquez la ville de départ, la ville d’arrivée, le volume, l’étage, les accès et la date souhaitée pour obtenir une réponse plus précise.",
 
     serviceOptions: [
       "Déménagement",
@@ -243,24 +224,24 @@ export const siteData = {
     submitLabel: "Envoyer ma demande de devis",
 
     legalNotice:
-      "En envoyant ce formulaire, vous transmettez les informations nécessaires pour être recontacté au sujet de votre demande.",
+      "En envoyant ce formulaire, vous transmettez les informations nécessaires pour être recontacté au sujet de votre demande de devis.",
   },
 
   paymentSection: {
     eyebrow: "Paiement",
-    title: "Un paiement CB sécurisé pour simplifier la réservation",
-    text: "Cette section prépare l’intégration d’un système de paiement par carte bancaire sécurisé afin de permettre un acompte en ligne, un paiement en plusieurs fois, une validation plus fluide des prestations et une meilleure clarté sur les conditions de réservation.",
+    title: "Une solution de paiement sécurisé en préparation",
+    text: "AS Transports prépare l’intégration d’un paiement en ligne sécurisé afin de faciliter, à terme, la réservation, l’acompte ou la validation de certaines prestations après devis.",
 
     badges: [
-      "Paiement CB sécurisé",
-      "Acompte possible",
+      "Paiement sécurisé à venir",
+      "Acompte possible après devis",
       "Réservation plus simple",
-      "3x / 4x sans frais",
+      "Conditions précisées avant validation",
     ],
 
     reassuranceCard: {
-      title: "Une vraie réassurance client",
-      text: "Afficher clairement le paiement sécurisé, le paiement en plusieurs fois et les conditions de réservation améliore la crédibilité du site et réduit les freins au moment de la prise de décision.",
+      title: "Un parcours plus clair pour le client",
+      text: "L’objectif est de proposer un parcours simple : demande de devis, validation de la prestation, puis solution de paiement sécurisée si elle est adaptée au besoin.",
     },
 
     primaryCta: {
@@ -276,23 +257,23 @@ export const siteData = {
     items: [
       {
         icon: CreditCard,
-        title: "Carte bancaire",
-        text: "Un règlement CB sécurisé permet de fluidifier la réservation et de professionnaliser immédiatement le parcours client.",
+        title: "Paiement sécurisé",
+        text: "Une solution de paiement en ligne pourra être intégrée pour professionnaliser la réservation après validation du devis.",
       },
       {
         icon: Zap,
-        title: "Paiement en plusieurs fois",
-        text: "Possibilité de régler en 3x ou 4x sans frais selon la prestation et le montant validé.",
+        title: "Validation plus fluide",
+        text: "Le paiement pourra servir à confirmer plus simplement certaines prestations ou certains créneaux.",
       },
       {
         icon: ShieldCheck,
-        title: "Paiement à la validation",
-        text: "Le règlement peut être demandé au moment de la validation de la prestation ou de la réservation selon la formule retenue.",
+        title: "Acompte après devis",
+        text: "Un acompte pourra être proposé selon la prestation, le montant et les conditions convenues avec le client.",
       },
       {
         icon: BadgeCheck,
-        title: "Frais de réservation si annulation",
-        text: "Des frais de réservation peuvent être appliqués en cas d’annulation après validation ou blocage du créneau.",
+        title: "Conditions encadrées",
+        text: "Les conditions de réservation, d’annulation et de paiement devront être précisées clairement avant toute validation.",
       },
     ],
   },
@@ -304,9 +285,9 @@ export const siteData = {
 
     highlights: [
       "Réponse rapide",
-      "Paiement CB sécurisé",
+      "Devis clair",
       "Intervention soignée",
-      "3x / 4x sans frais",
+      "Paiement sécurisé en préparation",
     ],
 
     primaryCta: {
@@ -320,16 +301,16 @@ export const siteData = {
     },
 
     reassuranceCard: {
-      title: "Un parcours plus simple pour le client",
-      text: "Devis, contact direct, acompte possible, paiement en plusieurs fois et future intégration du paiement sécurisé pour fluidifier la réservation.",
+      title: "Un parcours simple et professionnel",
+      text: "Demande de devis, échange direct, validation claire de la prestation et future possibilité de paiement sécurisé selon le besoin.",
     },
   },
 
   trustItems: [
-    { icon: CreditCard, label: "Paiement en 3x / 4x sans frais" },
-    { icon: CreditCard, label: "Paiement CB sécurisé" },
     { icon: Zap, label: "Devis rapide" },
-    { icon: Truck, label: "Intervention rapide" },
+    { icon: ShieldCheck, label: "Devis clair" },
+    { icon: Truck, label: "Intervention soignée" },
+    { icon: CreditCard, label: "Paiement sécurisé en préparation" },
   ],
 
   services: [
@@ -359,13 +340,13 @@ export const siteData = {
     },
     {
       number: "02",
-      title: "Validation rapide",
-      text: "Nous analysons votre demande, le volume, la distance et les accès pour vous proposer une estimation claire.",
+      title: "Étude de votre besoin",
+      text: "Nous analysons la prestation, le volume, la distance, les accès et les contraintes afin de proposer une estimation adaptée.",
     },
     {
       number: "03",
-      title: "Intervention",
-      text: "Après validation, l’intervention est planifiée rapidement avec une organisation simple et efficace.",
+      title: "Validation et intervention",
+      text: "Après validation du devis, l’intervention est planifiée avec une organisation simple, claire et efficace.",
     },
   ],
 
@@ -426,7 +407,7 @@ export const siteData = {
     {
       question: "Comment obtenir un devis ?",
       answer:
-        "Vous pouvez nous contacter par téléphone, par e-mail ou via le formulaire du site. Nous étudions rapidement votre besoin pour vous proposer une estimation adaptée.",
+        "Vous pouvez nous contacter par téléphone, par e-mail, par WhatsApp ou via le formulaire du site. Nous étudions rapidement votre besoin pour vous proposer une estimation adaptée.",
     },
     {
       question: "Proposez-vous le montage de meubles et de cuisines ?",
@@ -436,12 +417,12 @@ export const siteData = {
     {
       question: "Peut-on payer en carte bancaire ?",
       answer:
-        "Oui, un paiement CB sécurisé peut être proposé pour faciliter la réservation ou le règlement selon la prestation.",
+        "Une solution de paiement sécurisé est prévue afin de faciliter certaines validations de prestations après devis.",
     },
     {
       question: "Proposez-vous un paiement en plusieurs fois ?",
       answer:
-        "Selon la prestation et le montant, un paiement en 3x ou 4x sans frais peut être proposé afin de faciliter la réservation.",
+        "Cette possibilité pourra être étudiée selon la prestation, le montant et les conditions validées avec le client.",
     },
   ],
 };
