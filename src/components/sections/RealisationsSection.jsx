@@ -41,7 +41,7 @@ export default function RealisationsSection({ reassuranceItems }) {
         >
           <div className="relative overflow-hidden rounded-[1.75rem]">
             <img
-              src="/images/montage-avant-apres.jpg"
+              src="/images/gallery/montage-avant-apres.jpg"
               alt="Exemple avant après d'un montage de meuble"
               className="h-full min-h-[360px] w-full object-cover sm:min-h-[440px]"
             />
@@ -115,7 +115,7 @@ export default function RealisationsSection({ reassuranceItems }) {
       >
         <div className="relative overflow-hidden rounded-[1.75rem]">
           <img
-            src="/images/camion-demenagement.jpg"
+            src="/images/gallery/camion-demenagement.jpg"
             alt="Chargement du camion de déménagement"
             className="h-[320px] w-full object-cover sm:h-[460px]"
           />

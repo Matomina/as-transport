@@ -1,5 +1,4 @@
 import {
-  Phone,
   CreditCard,
   Zap,
   Truck,
@@ -17,7 +16,10 @@ export const siteData = {
     emailHref: "mailto:alban.transports@gmail.com",
     whatsapp: "https://wa.me/33765166125",
 
-    // À remplacer uniquement quand les vrais comptes client sont disponibles.
+    logo: "/images/branding/icons.svg",
+    favicon: "/images/branding/favicon.svg",
+    heroVideo: "/videos/logo-as-transports.mp4",
+
     instagram: "",
     snapchat: "",
 
@@ -30,8 +32,8 @@ export const siteData = {
     title: "AS Transports | Déménagement, débarras et montage en Île-de-France",
     description:
       "AS Transports accompagne particuliers et professionnels pour les déménagements, débarras, montages de meubles, montages de cuisines et livraisons en Île-de-France, en France et en Europe selon la prestation.",
-    ogImage: "/images/camion-demenagement.jpg",
-    favicon: "/images/favicon.svg",
+    ogImage: "/images/gallery/camion-demenagement.jpg",
+    favicon: "/images/branding/favicon.svg",
   },
 
   contactForm: {
@@ -44,6 +46,7 @@ export const siteData = {
     { label: "Services", href: "#services" },
     { label: "Comment ça marche", href: "#etapes" },
     { label: "Réalisations", href: "#realisations" },
+    { label: "Avis", href: "#avis" },
     { label: "Tarifs", href: "#tarifs" },
     { label: "Paiement", href: "#paiement" },
     { label: "FAQ", href: "#faq" },
@@ -52,18 +55,9 @@ export const siteData = {
 
   header: {
     topBadges: [
-      {
-        icon: ShieldCheck,
-        label: "Devis clair",
-      },
-      {
-        icon: Zap,
-        label: "Réponse rapide",
-      },
-      {
-        icon: CreditCard,
-        label: "Paiement sécurisé en préparation",
-      },
+      { icon: ShieldCheck, label: "Devis clair" },
+      { icon: Zap, label: "Réponse rapide" },
+      { icon: CreditCard, label: "Paiement sécurisé en préparation" },
     ],
     primaryCta: {
       label: "Devis gratuit",
@@ -108,8 +102,9 @@ export const siteData = {
     showcase: {
       topLeftBadge: "Intervention terrain",
       topRightBadge: "Devis rapide",
-      imageSrc: "/images/camion-demenagement.jpg",
-      imageAlt: "Chargement d'un camion de déménagement",
+      imageSrc: "/images/gallery/camion-demenagement.jpg",
+      videoSrc: "/videos/logo-as-transports.mp4",
+      imageAlt: "Camion de déménagement AS Transports",
       title:
         "Une équipe réactive pour vos besoins de transport et de déménagement",
       text: "Une présentation concrète du terrain, du matériel et du sérieux de l’intervention pour rassurer immédiatement le client.",
@@ -139,10 +134,7 @@ export const siteData = {
     description:
       "Déménagement, montage, débarras et livraison en Île-de-France",
     legalLinks: [
-      {
-        label: "Mentions légales",
-        href: "/mentions-legales.html",
-      },
+      { label: "Mentions légales", href: "/mentions-legales.html" },
       {
         label: "Politique de confidentialité",
         href: "/politique-confidentialite.html",
@@ -159,21 +151,9 @@ export const siteData = {
     responseBadge: "Réponse rapide sous 24h",
 
     infoCards: [
-      {
-        icon: "phone",
-        title: "Téléphone",
-        type: "link",
-      },
-      {
-        icon: "email",
-        title: "Email",
-        type: "link",
-      },
-      {
-        icon: "zone",
-        title: "Zone d’intervention",
-        type: "text",
-      },
+      { icon: "phone", title: "Téléphone", type: "link" },
+      { icon: "email", title: "Email", type: "link" },
+      { icon: "zone", title: "Zone d’intervention", type: "text" },
       {
         icon: "availability",
         title: "Disponibilité",
@@ -313,6 +293,25 @@ export const siteData = {
     { icon: CreditCard, label: "Paiement sécurisé en préparation" },
   ],
 
+  availabilityBanner: {
+    eyebrow: "Disponibilité",
+    title: "Un besoin rapide ? Contactez AS Transports",
+    text: "Pour un déménagement, un débarras, une livraison ou un montage, contactez-nous directement afin de vérifier les disponibilités et obtenir une première estimation claire.",
+    badges: [
+      "Réponse rapide selon planning",
+      "Créneaux étudiés sur demande",
+      "Intervention Île-de-France, France et Europe",
+    ],
+    primaryCta: {
+      label: "Appeler",
+      href: "tel:+33765166125",
+    },
+    secondaryCta: {
+      label: "WhatsApp",
+      href: "https://wa.me/33765166125",
+    },
+  },
+
   services: [
     {
       title: "Déménagement",
@@ -365,16 +364,47 @@ export const siteData = {
     },
   ],
 
-  packages: [
+  testimonialsSection: {
+    eyebrow: "Avis clients",
+    title: "Des interventions sérieuses, soignées et recommandées",
+    description:
+      "Les retours clients permettent de rassurer les particuliers comme les professionnels avant une demande de devis ou une intervention.",
+  },
+
+  testimonials: [
     {
-      title: "Studio / F2",
-      price: "À partir de 550 € TTC",
-      note: "Formule Île-de-France",
+      name: "Client particulier",
+      context: "Déménagement en Île-de-France",
+      rating: 5,
+      content:
+        "Intervention sérieuse, équipe ponctuelle et efficace. Le déménagement s’est déroulé proprement, avec soin et sans mauvaise surprise.",
     },
+    {
+      name: "Client particulier",
+      context: "Montage de meubles",
+      rating: 5,
+      content:
+        "Travail rapide et propre. Les meubles ont été montés correctement, avec une vraie attention aux détails et à l’espace.",
+    },
+    {
+      name: "Client professionnel",
+      context: "Débarras et transport",
+      rating: 5,
+      content:
+        "Prestation fiable, bonne communication et intervention organisée. Le devis était clair et le service conforme à ce qui avait été annoncé.",
+    },
+  ],
+
+  packages: [
     {
       title: "Formule étudiant",
       price: "À partir de 400 € TTC",
       note: "Formule étudiant en Île-de-France",
+    },
+    {
+      title: "Studio / F2",
+      price: "À partir de 550 € TTC",
+      note: "Formule Île-de-France",
     },
     {
       title: "F3 / F4",

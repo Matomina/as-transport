@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import { fadeUp } from "../motion/variants";
 
-export default function FaqSection({ faqItems }) {
-  const [openIndex, setOpenIndex] = useState(0);
+export default function FaqSection({ faqItems = [] }) {
+  const [openIndex, setOpenIndex] = useState(faqItems.length > 0 ? 0 : null);
 
   const handleToggle = (index) => {
     setOpenIndex((prev) => (prev === index ? null : index));
