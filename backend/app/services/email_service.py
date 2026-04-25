@@ -1,6 +1,6 @@
+import smtplib
 from email.message import EmailMessage
 from html import escape
-import smtplib
 
 from app.core.config import settings
 from app.models.contact_request import ContactRequest
@@ -90,13 +90,22 @@ def _build_html(contact_request: ContactRequest) -> str:
         ("Message", contact_request.message),
     ]
 
+    header_style = (
+        "background:#f5f5f5;"
+        "padding:10px;"
+        "border:1px solid #ddd;"
+        "width:220px;"
+    )
+    cell_style = "padding:10px;border:1px solid #ddd;"
+    table_style = "border-collapse:collapse;width:100%;max-width:900px;"
+
     table_rows = "\n".join(
         f"""
         <tr>
-          <th align="left" style="background:#f5f5f5;padding:10px;border:1px solid #ddd;width:220px;">
+          <th align="left" style="{header_style}">
             {escape(label)}
           </th>
-          <td style="padding:10px;border:1px solid #ddd;">
+          <td style="{cell_style}">
             {escape(_format_value(value))}
           </td>
         </tr>
@@ -108,7 +117,7 @@ def _build_html(contact_request: ContactRequest) -> str:
     <div style="font-family:Arial,sans-serif;color:#111;line-height:1.5;">
       <h1>Nouvelle demande de devis - AS Transports</h1>
       <p>Une nouvelle demande vient d'être envoyée depuis le site.</p>
-      <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:900px;">
+      <table cellpadding="0" cellspacing="0" style="{table_style}">
         <tbody>
           {table_rows}
         </tbody>
@@ -121,7 +130,9 @@ def send_contact_request_email(contact_request: ContactRequest) -> None:
     _assert_email_settings()
 
     message = EmailMessage()
-    message["Subject"] = f"Nouvelle demande de devis - {contact_request.full_name}"
+    message["Subject"] = (
+        f"Nouvelle demande de devis - {contact_request.full_name}"
+    )
     message["From"] = settings.SMTP_FROM_EMAIL
     message["To"] = settings.CONTACT_RECEIVER_EMAIL
     message["Reply-To"] = contact_request.email
@@ -129,7 +140,11 @@ def send_contact_request_email(contact_request: ContactRequest) -> None:
     message.set_content(_build_text(contact_request))
     message.add_alternative(_build_html(contact_request), subtype="html")
 
-    with smtplib.SMTP(settings.SMTP_HOST, settings.SMTP_PORT) as smtp:
+    with smtplib.SMTP(
+        settings.SMTP_HOST,
+        settings.SMTP_PORT,
+        timeout=8,
+    ) as smtp:
         smtp.starttls()
         smtp.login(settings.SMTP_USER, settings.SMTP_PASSWORD)
         smtp.send_message(message)

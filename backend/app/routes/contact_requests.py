@@ -1,3 +1,5 @@
+from typing import Annotated
+
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 
@@ -13,6 +15,8 @@ router = APIRouter(
     tags=["Contact requests"],
 )
 
+DbSession = Annotated[Session, Depends(get_db)]
+
 
 @router.post(
     "",
@@ -21,6 +25,6 @@ router = APIRouter(
 )
 def create_contact_request_endpoint(
     payload: ContactRequestCreate,
-    db: Session = Depends(get_db),
+    db: DbSession,
 ):
     return create_contact_request(db=db, payload=payload)

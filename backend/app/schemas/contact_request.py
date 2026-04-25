@@ -3,7 +3,6 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator
 
-
 ServiceType = Literal[
     "Déménagement",
     "Montage de meubles",
@@ -49,8 +48,12 @@ class ContactRequestCreate(BaseModel):
     @classmethod
     def validate_phone(cls, value: str) -> str:
         allowed_chars = set("0123456789+ .()-")
+
         if not all(char in allowed_chars for char in value):
-            raise ValueError("Le numéro de téléphone contient des caractères invalides.")
+            raise ValueError(
+                "Le numéro de téléphone contient des caractères invalides."
+            )
+
         return value
 
     def to_model_data(self) -> dict:

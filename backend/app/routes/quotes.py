@@ -1,3 +1,5 @@
+from typing import Annotated
+
 from fastapi import APIRouter, Depends, Response, status
 from sqlalchemy.orm import Session
 
@@ -13,6 +15,8 @@ router = APIRouter(
     tags=["Quotes"],
 )
 
+DbSession = Annotated[Session, Depends(get_db)]
+
 
 @router.post(
     "",
@@ -21,7 +25,7 @@ router = APIRouter(
 )
 def create_quote_request_endpoint(
     payload: ContactRequestCreate,
-    db: Session = Depends(get_db),
+    db: DbSession,
 ):
     """
     Créer une demande de devis depuis le formulaire public.
