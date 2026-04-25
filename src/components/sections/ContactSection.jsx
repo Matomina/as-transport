@@ -82,16 +82,6 @@ function InstagramIcon(props) {
   );
 }
 
-function buildApiUrl(action) {
-  const apiBaseUrl = (import.meta.env.VITE_API_URL ?? "").replace(/\/$/, "");
-
-  if (action.startsWith("http://") || action.startsWith("https://")) {
-    return action;
-  }
-
-  return `${apiBaseUrl}${action}`;
-}
-
 function getApiErrorMessage(data) {
   if (!data) {
     return "Une erreur est survenue pendant l'envoi du formulaire.";
@@ -134,7 +124,7 @@ export default function ContactSection({
 
   const formAction = contactForm?.action ?? "/api/quotes";
   const successRedirect = contactForm?.successRedirect ?? "/merci.html";
-  const quoteEndpoint = buildApiUrl(formAction);
+  const quoteEndpoint = formAction;
 
   const infoCards = contactSection?.infoCards ?? [];
   const serviceOptions = contactSection?.serviceOptions ?? [];
