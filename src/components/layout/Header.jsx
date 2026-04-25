@@ -22,14 +22,18 @@ export default function Header({
   const mobilePhoneLabel = header?.mobilePhoneLabel ?? "Appeler maintenant";
   const mobileQuoteLabel = header?.mobileQuoteLabel ?? "Demander un devis";
 
-  const topBarItems = [
-    { icon: ShieldCheck, label: "Paiement CB sécurisé" },
-    { icon: Zap, label: "Devis rapide" },
-    { icon: CreditCard, label: "Paiement en 3x / 4x sans frais" },
-  ];
+  const topBarItems =
+    header?.topBadges?.length > 0
+      ? header.topBadges
+      : [
+          { icon: ShieldCheck, label: "Devis clair" },
+          { icon: Zap, label: "Réponse rapide" },
+          { icon: CreditCard, label: "Paiement sécurisé en préparation" },
+        ];
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
+
     return () => {
       document.body.style.overflow = "";
     };
@@ -76,6 +80,7 @@ export default function Header({
                 muted
                 loop
                 playsInline
+                aria-hidden="true"
                 className="h-full w-full scale-125 rotate-90 object-cover"
               />
             </div>
@@ -84,6 +89,7 @@ export default function Header({
               <div className="truncate text-base font-black tracking-wide text-[#ff5a2a] sm:text-lg">
                 {companyName}
               </div>
+
               <div className="truncate text-[10px] uppercase tracking-[0.24em] text-white/60 sm:text-[11px]">
                 {companyBaseline}
               </div>
@@ -122,7 +128,11 @@ export default function Header({
             onClick={toggleMenu}
             className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#ff5a2a]/50 focus:ring-offset-2 focus:ring-offset-[#062f2b] lg:hidden"
           >
-            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {menuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </button>
         </div>
       </div>

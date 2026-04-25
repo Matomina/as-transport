@@ -1,0 +1,61 @@
+[project]
+name = "as-transports-backend"
+version = "0.1.0"
+description = "Backend FastAPI pour la gestion des demandes de devis AS Transports."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = { text = "UNLICENSED" }
+authors = [
+  { name = "Matomina" }
+]
+
+keywords = [
+  "fastapi",
+  "backend",
+  "devis",
+  "transport",
+  "demenagement",
+  "as-transports"
+]
+
+classifiers = [
+  "Private :: Do Not Upload",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Framework :: FastAPI"
+]
+
+dependencies = []
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+src = ["app", "tests"]
+
+[tool.ruff.lint]
+select = [
+  "E",
+  "F",
+  "I",
+  "B",
+  "UP",
+  "SIM",
+  "C4"
+]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = [
+  "-ra",
+  "--strict-markers",
+  "--strict-config"
+]

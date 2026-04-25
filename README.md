@@ -1,216 +1,80 @@
 # AS Transports — Site vitrine premium React + Vite
 
-![React](https://img.shields.io/badge/React-19-blue)
-![Vite](https://img.shields.io/badge/Vite-8-purple)
-![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-v4-38BDF8)
-![Build](https://img.shields.io/badge/build-passing-brightgreen)
-![Status](https://img.shields.io/badge/status-active-success)
-![License](https://img.shields.io/badge/license-private-red)
+Site vitrine moderne développé pour **AS Transports**, entreprise spécialisée dans le déménagement, le montage de meubles, le montage de cuisines, le débarras et la livraison.
 
-Application web moderne développée pour **AS Transports**, entreprise spécialisée dans le déménagement, le montage, le débarras et le transport.
-
-Le projet a été pensé pour proposer une expérience utilisateur claire, rassurante et orientée conversion, avec une architecture React maintenable, un SEO local optimisé et une base technique évolutive.
+Le projet est orienté **conversion**, **SEO local**, **prise de devis** et prépare une future évolution vers un backend métier et un paiement sécurisé après validation du devis.
 
 ---
 
-# Aperçu du projet
-
-AS Transports est un site vitrine conçu pour répondre à plusieurs objectifs métier :
-
-- valoriser les services proposés
-- rassurer les visiteurs avec une structure claire
-- simplifier la prise de contact
-- favoriser les demandes de devis rapides
-- améliorer la visibilité locale
-- proposer une navigation fluide mobile / desktop
-- préparer une montée en gamme vers une plateforme plus avancée
-
-Le projet repose sur une architecture moderne basée sur React + Vite, avec une logique modulaire et une centralisation complète des données métier.
-
----
-
-# Objectifs du projet
-
-Le site a été pensé pour répondre à une logique de conversion et de professionnalisation.
-
-## Objectifs business
-
-- augmenter les demandes de devis
-- améliorer la crédibilité de l’entreprise
-- valoriser les prestations de transport et déménagement
-- renforcer la réassurance client
-- proposer une présence digitale moderne
-
-## Objectifs techniques
-
-- structure React scalable
-- maintenance simplifiée
-- données centralisées
-- SEO local optimisé
-- architecture réutilisable
-- base prête pour industrialisation
-
----
-
-# Fonctionnalités
-
-## Interface utilisateur
-
-- Header sticky premium
-- Navigation responsive
-- Menu mobile animé
-- Hero section orientée conversion
-- CTA téléphone et devis
-- Bouton WhatsApp flottant
-- Sections visuelles structurées
-- Responsive mobile / tablette / desktop
-- Effets de transition fluides
-- Structure pensée pour la conversion
-
-## Parcours utilisateur
-
-- Présentation claire des services
-- Réassurance visuelle
-- Process client étape par étape
-- Tarification indicative
-- FAQ informative
-- Formulaire de contact
-- Contact rapide par téléphone
-- Navigation simple et directe
-
-## Fonctionnalités techniques
-
-- SEO local optimisé
-- JSON-LD entreprise locale
-- Architecture modulaire
-- Animations Framer Motion
-- Source de données centralisée
-- Build production optimisé
-- Validation ESLint
-- Structure scalable
-
----
-
-# Stack technique
-
-Le projet repose sur une stack moderne orientée performance et maintenabilité.
-
-## Frontend
+## Stack
 
 - React
 - Vite
 - Tailwind CSS v4
 - Framer Motion
 - Lucide React
-
-## Qualité & tooling
-
 - ESLint
-- npm scripts de validation
-- Build Vite production
+- GitHub Actions
 
 ---
 
-# Démarrage rapide
+## Objectifs
 
-```bash
-git clone https://github.com/Matomina/as-transport.git
-cd as-transport
-npm install
-npm run dev
-```
+### Objectifs business
 
-Le projet sera disponible localement via :
+- Présenter les prestations de manière claire
+- Rassurer les visiteurs
+- Favoriser les demandes de devis
+- Mettre en avant le téléphone et WhatsApp
+- Professionnaliser la présence digitale
+
+### Objectifs techniques
+
+- Préparer un futur backend de gestion des demandes
+- Préparer une future intégration de paiement sécurisé
+- Centraliser les données métier
+- Maintenir une architecture scalable
+- Conserver une structure propre et maintenable
+
+---
+
+## Fonctionnalités actuelles
+
+- Header sticky responsive
+- Menu mobile animé
+- Hero section orientée conversion
+- Trust bar
+- Sections services, étapes, réalisations, tarifs, paiement, FAQ et contact
+- Formulaire de demande de devis enrichi
+- Bouton WhatsApp flottant
+- Page de confirmation `/merci.html`
+- Mentions légales
+- Politique de confidentialité
+- SEO local
+- Open Graph / Twitter Cards
+- JSON-LD `MovingCompany`
+- Build production validé
+- CI GitHub Actions
+
+---
+
+## Parcours utilisateur
+
+Le tunnel actuel est pensé pour maximiser la conversion :
 
 ```txt
-http://localhost:5173
-```
-
----
-
-# Installation
-
-## Prérequis
-
-- Node.js 20+
-- npm 10+
-
-## Installation locale
-
-```bash
-npm install
-npm run dev
-```
-
----
-
-# Scripts disponibles
-
-## Développement local
-
-```bash
-npm run dev
-```
-
-Lance le serveur Vite local.
-
----
-
-## Build production
-
-```bash
-npm run build
-```
-
-Génère une version optimisée dans le dossier :
-
-```txt
-dist/
-```
-
----
-
-## Prévisualisation build
-
-```bash
-npm run preview
-```
-
-Permet de tester localement la build production.
-
----
-
-## Analyse ESLint
-
-```bash
-npm run lint
-```
-
-Vérifie la qualité du code.
-
----
-
-## Validation complète
-
-```bash
-npm run check
-```
-
-Exécute automatiquement :
-
-- lint
-- build
-
-Permet de vérifier rapidement qu’aucune régression n’est présente avant commit ou push.
-
----
-
-# Architecture du projet
-
-```txt
+Accueil
+→ Réassurance
+→ Services
+→ Étapes
+→ Réalisations
+→ Tarifs indicatifs
+→ Paiement sécurisé en préparation
+→ FAQ
+→ Formulaire de devis
+→ Confirmation
+Architecture
 src/
-├── assets/
-│
 ├── components/
 │   ├── layout/
 │   │   ├── Header.jsx
@@ -229,224 +93,188 @@ src/
 │       ├── PaymentSection.jsx
 │       ├── FaqSection.jsx
 │       ├── ContactSection.jsx
-│       ├── FinalCtaSection.jsx
-│       └── TopPopup.jsx
+│       └── FinalCtaSection.jsx
 │
 ├── data/
 │   └── siteData.js
 │
 ├── App.jsx
 ├── main.jsx
-├── index.css
-```
+└── index.css
 
----
+public/
+├── merci.html
+├── mentions-legales.html
+├── politique-confidentialite.html
+├── images/
+└── videos/
+Données centralisées
 
-# Données centralisées
+Le fichier principal de contenu est :
 
-Le projet repose sur une logique de **source unique de vérité** via :
-
-```txt
 src/data/siteData.js
-```
 
-Ce fichier centralise :
+Il centralise :
 
-- informations entreprise
-- téléphone
-- email
-- WhatsApp
-- navigation
-- SEO
-- contenu Hero
-- services
-- étapes
-- FAQ
-- CTA
-- configuration formulaire
+informations entreprise
+téléphone
+email
+WhatsApp
+navigation
+SEO
+Hero
+services
+étapes
+tarifs
+paiement
+FAQ
+formulaire
+CTA
+footer
+Formulaire de devis
 
-## Avantages
+Le formulaire utilise actuellement FormSubmit pour l’envoi email.
 
-- maintenance simplifiée
-- cohérence globale du contenu
-- évolution rapide
-- réduction des duplications
-- meilleure lisibilité du projet
+Il est déjà structuré pour une future API backend.
 
----
+Champs disponibles
+nom
+téléphone
+email
+type de prestation
+ville de départ
+ville d’arrivée
+date souhaitée
+type de logement
+étage départ
+étage arrivée
+ascenseur départ
+ascenseur arrivée
+volume approximatif
+créneau de rappel préféré
+contraintes particulières
+message
+Paiement
 
-# SEO
+La section paiement est actuellement une section de préparation.
 
-Le projet intègre une base SEO complète pour une stratégie locale.
+Le paiement en ligne sera intégré plus tard, après :
 
-## SEO technique
+validation du parcours devis
+mise en place du backend
+création d’un modèle de demande/devis
+définition des règles d’acompte
+intégration d’un prestataire sécurisé
+Parcours cible futur
+Demande de devis
+→ Étude de la demande
+→ Validation commerciale
+→ Paiement sécurisé
+→ Confirmation
+SEO
 
-- Meta title
-- Meta description
-- Canonical
-- Open Graph
-- Twitter Cards
-- Favicon
-- Theme Color
-- JSON-LD MovingCompany
-- Structure HTML sémantique
+Le projet intègre :
 
-## SEO local
+Meta Title
+Meta Description
+Canonical
+Open Graph
+Twitter Cards
+Theme Color
+JSON-LD MovingCompany
+SEO local Île-de-France / France / Europe
+Installation
+Clone du repo
+git clone https://github.com/Matomina/as-transport.git
+cd as-transport
+Installation dépendances
+npm install
+Démarrage local
+npm run dev
 
-- ciblage Île-de-France
-- hiérarchie H1 / H2 / H3
-- contenu métier ciblé
-- structure pensée pour indexation Google
+URL locale :
 
-Le fichier `index.html` prépare une indexation propre et une bonne compatibilité avec les réseaux sociaux.
+http://localhost:5173
+Scripts disponibles
+Développement
+npm run dev
 
----
+Lance le serveur local.
 
-# Formulaire de contact
+Build production
+npm run build
 
-Le formulaire actuel repose sur :
+Génère la version optimisée dans :
 
-```txt
-FormSubmit
-```
+dist/
+Prévisualisation build
+npm run preview
+Analyse ESLint
+npm run lint
+Validation complète
+npm run check
 
-## Fonctionnalités
+Exécute :
 
-- envoi direct par email
-- redirection de confirmation
-- honeypot anti-spam
-- configuration centralisée
-- possibilité de migration future vers API ou backend
+lint + build
+Standards qualité
 
----
+Le projet applique :
 
-# Standards qualité
+architecture React modulaire
+composants réutilisables
+responsive mobile-first
+SEO local structuré
+validation build
+séparation logique contenu / composants
+données centralisées
+Roadmap
+Phase actuelle
+stabilisation front commercial
+cohérence contenu
+tunnel de conversion
+formulaire devis métier
+pages légales
+préparation backend
+Phase suivante
+backend devis
+stockage leads
+notifications email
+gestion statut demande
+mini back-office
+Phase avancée
+paiement sécurisé
+gestion acompte
+réservation
+annulation
+suivi transactionnel
+Déploiement
+Frontend
+Vercel
+Netlify
+Backend futur
+Render
+Railway
+VPS
+Domaine cible
+https://as-transports.fr
+Statut
 
-Le projet applique plusieurs règles de qualité.
+Projet en développement actif.
 
-## Standards actuels
+Base front stabilisée et prête pour la préparation du backend métier.
 
-- ESLint configuré
-- architecture modulaire
-- composants réutilisables
-- responsive mobile-first
-- structure SEO optimisée
-- build production validé
-- validation `npm run check`
+Auteur
 
-## Objectif qualité
+Projet développé par Matomina pour AS Transports.
 
-Maintenir une base stable, lisible et facilement évolutive.
-
----
-
-# Performance
-
-Le projet a été pensé pour une expérience rapide et fluide.
-
-## Optimisations
-
-- Vite pour build rapide
-- chargement frontend léger
-- architecture modulaire
-- animations contrôlées
-- optimisation mobile-first
-- séparation claire des composants
-
----
-
-# Roadmap technique
-
-## Phase actuelle
-
-- stabilisation architecture
-- cohérence responsive
-- optimisation UX
-- amélioration SEO local
-- professionnalisation composants
-- nettoyage structure repo
-
----
-
-## Étapes futures
-
-- intégration Stripe
-- page merci / confirmation
-- optimisation Core Web Vitals
-- amélioration animations scroll
-- CI GitHub Actions
-- analytics & tracking
-- optimisation conversion
-- amélioration formulaire
-- système de réservation avancé
-
----
-
-# Qualité projet
-
-Le projet possède désormais :
-
-- architecture stabilisée
-- build production validé
-- ESLint actif
-- données centralisées
-- composants réutilisables
-- base SEO prête
-- logique responsive
-
----
-
-# Aperçu visuel
-
-Tu peux ajouter ici des captures d’écran du site pour enrichir la présentation du repository.
-
-Exemple :
-
-```txt
-README/assets/homepage-preview.jpg
-README/assets/mobile-preview.jpg
-```
-
----
-
-# Déploiement
-
-Le projet peut être déployé sur plusieurs plateformes modernes.
-
-## Solutions compatibles
-
-- Vercel
-- Netlify
-- GitHub Pages
-- Render
-- hébergement VPS
-
----
-
-# Statut
-
-Projet en évolution active.
-
-Architecture stabilisée et prête pour les prochaines phases d’industrialisation.
-
----
-
-# Auteur
-
-Projet développé pour **AS Transports**.
-
-Architecture React + Vite orientée conversion, UX, SEO local et performance.
-
----
-
-# Licence
+Licence
 
 Projet privé.
 
-Utilisation réservée au cadre du développement du site AS Transports.
+Utilisation réservée au développement du site AS Transports.
 
----
+Repository
 
-# Repository
-
-GitHub : [https://github.com/Matomina/as-transport](https://github.com/Matomina/as-transport)
+GitHub : https://github.com/Matomina/as-transport
+```

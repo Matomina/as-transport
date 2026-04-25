@@ -19,8 +19,8 @@ export default function PaymentSection({ paymentSection, company }) {
   };
 
   const reassuranceCard = section.reassuranceCard ?? {
-    title: "Une vraie réassurance client",
-    text: "Afficher clairement le paiement sécurisé améliore la crédibilité du site et réduit les freins au moment de la prise de décision.",
+    title: "Un parcours plus clair pour le client",
+    text: "L’objectif est de proposer un parcours simple : demande de devis, validation de la prestation, puis solution de paiement sécurisée si elle est adaptée au besoin.",
   };
 
   return (
@@ -47,16 +47,15 @@ export default function PaymentSection({ paymentSection, company }) {
           </div>
 
           <h2 className="mt-3 text-3xl font-black leading-tight text-white sm:text-4xl">
-            {section.title ??
-              "Un paiement CB sécurisé pour simplifier la réservation"}
+            {section.title ?? "Une solution de paiement sécurisé en préparation"}
           </h2>
 
           <p className="mt-4 leading-7 text-white/75">
             {section.text ??
-              "Cette section prépare l’intégration d’un système de paiement par carte bancaire sécurisé afin de permettre un acompte en ligne, de rassurer le client et de fluidifier la validation des prestations."}
+              "AS Transports prépare l’intégration d’un paiement en ligne sécurisé afin de faciliter, à terme, la réservation, l’acompte ou la validation de certaines prestations après devis."}
           </p>
 
-          {badges.length > 0 && (
+          {badges.length > 0 ? (
             <div className="mt-6 flex flex-wrap gap-3">
               {badges.map((badge) => (
                 <span
@@ -67,12 +66,12 @@ export default function PaymentSection({ paymentSection, company }) {
                 </span>
               ))}
             </div>
-          )}
+          ) : null}
 
           <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-black/20 p-4">
             <div className="flex items-start gap-3">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#ff5a2a] text-white shadow-lg shadow-black/20">
-                <ShieldCheck className="h-5 w-5" />
+                <ShieldCheck aria-hidden="true" className="h-5 w-5" />
               </div>
 
               <div>
@@ -103,37 +102,41 @@ export default function PaymentSection({ paymentSection, company }) {
           </div>
         </motion.div>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
-          className="grid gap-4 sm:grid-cols-2"
-        >
-          {items.map((item) => {
-            const Icon = item.icon;
+        {items.length > 0 ? (
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.15 }}
+            className="grid gap-4 sm:grid-cols-2"
+          >
+            {items.map((item) => {
+              const Icon = item.icon;
 
-            return (
-              <motion.div
-                key={item.title}
-                variants={fadeUpSoft}
-                className="group rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 transition hover:-translate-y-1 hover:border-[#ff5a2a]/40 hover:bg-[#ff5a2a]/[0.06]"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#ff5a2a]/15 text-[#ff5a2a] transition group-hover:bg-[#ff5a2a] group-hover:text-white">
-                  {Icon ? <Icon className="h-5 w-5" /> : null}
-                </div>
+              return (
+                <motion.div
+                  key={item.title}
+                  variants={fadeUpSoft}
+                  className="group rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 transition hover:-translate-y-1 hover:border-[#ff5a2a]/40 hover:bg-[#ff5a2a]/[0.06]"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#ff5a2a]/15 text-[#ff5a2a] transition group-hover:bg-[#ff5a2a] group-hover:text-white">
+                    {Icon ? (
+                      <Icon aria-hidden="true" className="h-5 w-5" />
+                    ) : null}
+                  </div>
 
-                <h3 className="mt-4 text-xl font-black text-white sm:text-2xl">
-                  {item.title}
-                </h3>
+                  <h3 className="mt-4 text-xl font-black text-white sm:text-2xl">
+                    {item.title}
+                  </h3>
 
-                <p className="mt-3 text-sm leading-6 text-white/75">
-                  {item.text}
-                </p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+                  <p className="mt-3 text-sm leading-6 text-white/75">
+                    {item.text}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        ) : null}
       </div>
     </motion.section>
   );
