@@ -27,6 +27,20 @@ node_modules/
 .yarn-integrity
 
 # =========================================================
+# PYTHON / FASTAPI
+# =========================================================
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+htmlcov/
+backend/.venv/
+backend/.pytest_cache/
+backend/.ruff_cache/
+
+# =========================================================
 # BUILD / DIST
 # =========================================================
 dist/
