@@ -37,7 +37,7 @@ export const siteData = {
   },
 
   contactForm: {
-    action: "https://formsubmit.co/alban.transports@gmail.com",
+    action: "/api/quotes",
     subject: "Nouvelle demande de devis - AS Transports",
     successRedirect: "/merci.html",
   },

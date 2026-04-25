@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
-from app.routes import contact_requests_router
+from app.routes import contact_requests_router, quotes_router
 
 
 def create_application() -> FastAPI:
@@ -28,6 +28,9 @@ def create_application() -> FastAPI:
         allow_headers=["*"],
     )
 
+    app.include_router(quotes_router, prefix="/api")
+
+    # Route conservée temporairement pour compatibilité interne / future admin.
     app.include_router(contact_requests_router, prefix="/api/v1")
 
     @app.get("/", tags=["Root"])

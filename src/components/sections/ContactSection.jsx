@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Phone,
@@ -56,7 +57,9 @@ const callbackOptions = ["Matin", "Après-midi", "Soir", "Peu importe"];
 function SocialIcon({ type }) {
   if (type === "whatsapp") return <MessageCircle className="h-4 w-4" />;
   if (type === "instagram") return <InstagramIcon className="h-4 w-4" />;
-  if (type === "snapchat") return <span className="text-sm leading-none">👻</span>;
+  if (type === "snapchat") {
+    return <span className="text-sm leading-none">👻</span>;
+  }
 
   return null;
 }
@@ -79,11 +82,47 @@ function InstagramIcon(props) {
   );
 }
 
+function buildApiUrl(action) {
+  const apiBaseUrl = (import.meta.env.VITE_API_URL ?? "").replace(/\/$/, "");
+
+  if (action.startsWith("http://") || action.startsWith("https://")) {
+    return action;
+  }
+
+  return `${apiBaseUrl}${action}`;
+}
+
+function getApiErrorMessage(data) {
+  if (!data) {
+    return "Une erreur est survenue pendant l'envoi du formulaire.";
+  }
+
+  if (typeof data.detail === "string") {
+    return data.detail;
+  }
+
+  if (Array.isArray(data.detail) && data.detail.length > 0) {
+    return data.detail
+      .map((error) => error.msg)
+      .filter(Boolean)
+      .join(" ");
+  }
+
+  if (typeof data.message === "string") {
+    return data.message;
+  }
+
+  return "Certaines informations sont invalides.";
+}
+
 export default function ContactSection({
   company,
   contactForm,
   contactSection,
 }) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formFeedback, setFormFeedback] = useState(null);
+
   const phoneHref = company?.phoneHref ?? "tel:+33765166125";
   const phone = company?.phone ?? "07 65 16 61 25";
   const emailHref = company?.emailHref ?? "mailto:alban.transports@gmail.com";
@@ -93,11 +132,9 @@ export default function ContactSection({
     company?.zone ??
     "Intervention principalement en Île-de-France, avec possibilité de déplacement dans toute la France et en Europe selon la prestation.";
 
-  const formAction =
-    contactForm?.action ?? "https://formsubmit.co/alban.transports@gmail.com";
-  const formSubject =
-    contactForm?.subject ?? "Nouvelle demande de devis - AS Transports";
+  const formAction = contactForm?.action ?? "/api/quotes";
   const successRedirect = contactForm?.successRedirect ?? "/merci.html";
+  const quoteEndpoint = buildApiUrl(formAction);
 
   const infoCards = contactSection?.infoCards ?? [];
   const serviceOptions = contactSection?.serviceOptions ?? [];
@@ -122,6 +159,52 @@ export default function ContactSection({
             type: "whatsapp",
           },
         ];
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const payload = Object.fromEntries(new FormData(form));
+
+    setIsSubmitting(true);
+    setFormFeedback(null);
+
+    try {
+      const response = await fetch(quoteEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.status === 204) {
+        form.reset();
+        return;
+      }
+
+      const data = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        setFormFeedback({
+          type: "error",
+          message: getApiErrorMessage(data),
+        });
+        return;
+      }
+
+      form.reset();
+      window.location.href = successRedirect;
+    } catch {
+      setFormFeedback({
+        type: "error",
+        message:
+          "Impossible d'envoyer la demande pour le moment. Vous pouvez appeler directement AS Transports.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
     <motion.section
@@ -261,20 +344,15 @@ export default function ContactSection({
           </div>
 
           <form
-            action={formAction}
-            method="POST"
+            onSubmit={handleSubmit}
             className="mt-6 grid gap-4 text-center md:text-left"
+            aria-busy={isSubmitting}
           >
-            <input type="hidden" name="_subject" value={formSubject} />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value={successRedirect} />
-
             <label className="hidden" aria-hidden="true">
               Ne pas remplir ce champ
               <input
                 type="text"
-                name="_honey"
+                name="website"
                 tabIndex="-1"
                 autoComplete="off"
               />
@@ -285,7 +363,7 @@ export default function ContactSection({
                 <span className="text-sm font-semibold text-white/85">Nom</span>
                 <input
                   type="text"
-                  name="Nom"
+                  name="full_name"
                   required
                   placeholder="Votre nom"
                   autoComplete="name"
@@ -299,7 +377,7 @@ export default function ContactSection({
                 </span>
                 <input
                   type="tel"
-                  name="Téléphone"
+                  name="phone"
                   required
                   placeholder="Votre téléphone"
                   autoComplete="tel"
@@ -312,7 +390,7 @@ export default function ContactSection({
               <span className="text-sm font-semibold text-white/85">Email</span>
               <input
                 type="email"
-                name="Email"
+                name="email"
                 required
                 placeholder="Votre adresse e-mail"
                 autoComplete="email"
@@ -325,7 +403,7 @@ export default function ContactSection({
                 Type de prestation
               </span>
               <select
-                name="Prestation"
+                name="service_type"
                 required
                 defaultValue=""
                 className={selectClass}
@@ -349,7 +427,7 @@ export default function ContactSection({
                 </span>
                 <input
                   type="text"
-                  name="Ville de départ"
+                  name="departure_city"
                   placeholder="Ex : Paris"
                   autoComplete="address-level2"
                   className={inputClass}
@@ -362,7 +440,7 @@ export default function ContactSection({
                 </span>
                 <input
                   type="text"
-                  name="Ville d’arrivée"
+                  name="arrival_city"
                   placeholder="Ex : Créteil"
                   autoComplete="address-level2"
                   className={inputClass}
@@ -377,7 +455,7 @@ export default function ContactSection({
                 </span>
                 <input
                   type="date"
-                  name="Date souhaitée"
+                  name="desired_date"
                   className={inputClass}
                 />
               </label>
@@ -387,7 +465,7 @@ export default function ContactSection({
                   Type de logement / lieu
                 </span>
                 <select
-                  name="Type de logement"
+                  name="housing_type"
                   defaultValue=""
                   className={selectClass}
                 >
@@ -411,7 +489,7 @@ export default function ContactSection({
                 </span>
                 <input
                   type="text"
-                  name="Étage départ"
+                  name="departure_floor"
                   placeholder="Ex : 3e étage"
                   className={inputClass}
                 />
@@ -423,7 +501,7 @@ export default function ContactSection({
                 </span>
                 <input
                   type="text"
-                  name="Étage arrivée"
+                  name="arrival_floor"
                   placeholder="Ex : Rez-de-chaussée"
                   className={inputClass}
                 />
@@ -436,7 +514,7 @@ export default function ContactSection({
                   Ascenseur au départ
                 </span>
                 <select
-                  name="Ascenseur départ"
+                  name="departure_elevator"
                   defaultValue=""
                   className={selectClass}
                 >
@@ -460,7 +538,7 @@ export default function ContactSection({
                   Ascenseur à l’arrivée
                 </span>
                 <select
-                  name="Ascenseur arrivée"
+                  name="arrival_elevator"
                   defaultValue=""
                   className={selectClass}
                 >
@@ -486,7 +564,7 @@ export default function ContactSection({
                   Volume approximatif
                 </span>
                 <select
-                  name="Volume approximatif"
+                  name="estimated_volume"
                   defaultValue=""
                   className={selectClass}
                 >
@@ -507,7 +585,7 @@ export default function ContactSection({
                   Créneau de rappel préféré
                 </span>
                 <select
-                  name="Créneau de rappel préféré"
+                  name="callback_slot"
                   defaultValue=""
                   className={selectClass}
                 >
@@ -529,7 +607,7 @@ export default function ContactSection({
                 Contraintes particulières
               </span>
               <textarea
-                name="Contraintes particulières"
+                name="constraints"
                 rows="4"
                 placeholder="Stationnement, accès difficile, objets lourds, besoin de démontage, horaires particuliers..."
                 className={inputClass}
@@ -541,7 +619,7 @@ export default function ContactSection({
                 Message
               </span>
               <textarea
-                name="Message"
+                name="message"
                 required
                 rows="6"
                 placeholder="Décrivez votre besoin : volume, ville de départ, ville d'arrivée, étage, date souhaitée..."
@@ -549,11 +627,27 @@ export default function ContactSection({
               />
             </label>
 
+            {formFeedback ? (
+              <div
+                className={`rounded-2xl border px-4 py-3 text-sm font-semibold ${
+                  formFeedback.type === "error"
+                    ? "border-red-400/30 bg-red-500/10 text-red-200"
+                    : "border-green-400/30 bg-green-500/10 text-green-200"
+                }`}
+                role={formFeedback.type === "error" ? "alert" : "status"}
+              >
+                {formFeedback.message}
+              </div>
+            ) : null}
+
             <button
               type="submit"
-              className="mt-2 rounded-2xl bg-[#ff5a2a] px-6 py-4 font-bold text-white shadow-lg shadow-black/15 transition hover:scale-[1.01] hover:bg-[#ff6b3f] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb39d]"
+              disabled={isSubmitting}
+              className="mt-2 rounded-2xl bg-[#ff5a2a] px-6 py-4 font-bold text-white shadow-lg shadow-black/15 transition hover:scale-[1.01] hover:bg-[#ff6b3f] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb39d] disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {contactSection?.submitLabel ?? "Envoyer ma demande de devis"}
+              {isSubmitting
+                ? "Envoi en cours..."
+                : contactSection?.submitLabel ?? "Envoyer ma demande de devis"}
             </button>
           </form>
 
