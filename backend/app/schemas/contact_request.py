@@ -11,6 +11,15 @@ ServiceType = Literal[
     "Livraison",
 ]
 
+ContactRequestStatusValue = Literal[
+    "new",
+    "to_call",
+    "quote_sent",
+    "accepted",
+    "cancelled",
+    "archived",
+]
+
 
 class ContactRequestCreate(BaseModel):
     model_config = ConfigDict(
@@ -71,3 +80,39 @@ class ContactRequestResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class ContactRequestDetailResponse(BaseModel):
+    id: int
+    full_name: str
+    phone: str
+    email: EmailStr
+    service_type: str
+
+    departure_city: str | None
+    arrival_city: str | None
+    desired_date: str | None
+
+    housing_type: str | None
+    departure_floor: str | None
+    arrival_floor: str | None
+
+    departure_elevator: str | None
+    arrival_elevator: str | None
+
+    estimated_volume: str | None
+    callback_slot: str | None
+
+    constraints: str | None
+    message: str
+
+    status: str
+    created_at: datetime
+    updated_at: datetime
+
+    class Config:
+        from_attributes = True
+
+
+class ContactRequestUpdateStatus(BaseModel):
+    status: ContactRequestStatusValue

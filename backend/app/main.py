@@ -2,7 +2,11 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
-from app.routes import contact_requests_router, quotes_router
+from app.routes import (
+    admin_contact_requests_router,
+    contact_requests_router,
+    quotes_router,
+)
 
 
 def create_application() -> FastAPI:
@@ -32,7 +36,8 @@ def create_application() -> FastAPI:
 
     # Route conservée temporairement pour compatibilité interne / future admin.
     app.include_router(contact_requests_router, prefix="/api/v1")
-
+    app.include_router(admin_contact_requests_router, prefix="/api/admin")
+    
     @app.get("/", tags=["Root"])
     async def root():
         return {
