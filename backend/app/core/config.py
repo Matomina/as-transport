@@ -46,6 +46,7 @@ class Settings(BaseSettings):
     # ======================================================
 
     SECRET_KEY: str = "CHANGE_ME_SUPER_SECRET_KEY"
+    ADMIN_API_KEY: str = ""
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
     ALGORITHM: str = "HS256"
 

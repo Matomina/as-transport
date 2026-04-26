@@ -3,6 +3,7 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 
+from app.core.admin_security import verify_admin_api_key
 from app.database.session import get_db
 from app.models.contact_request import ContactRequestStatus
 from app.schemas.contact_request import (
@@ -19,6 +20,7 @@ from app.services.contact_request_service import (
 router = APIRouter(
     prefix="/contact-requests",
     tags=["Admin contact requests"],
+    dependencies=[Depends(verify_admin_api_key)],
 )
 
 DbSession = Annotated[Session, Depends(get_db)]
@@ -89,8 +91,8 @@ def update_contact_request_status_endpoint(
     """
     Mettre à jour le statut d'une demande de devis.
 
-    Cette route prépare le futur back-office.
-    Elle devra être protégée avant mise en production.
+    Route protégée par clé API admin.
+    Une authentification plus complète pourra être ajoutée plus tard.
     """
 
     contact_request = get_contact_request_by_id(
